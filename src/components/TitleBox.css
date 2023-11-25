@@ -1,0 +1,29 @@
+.title-box-wrapper {
+  margin: 0;
+}
+
+.title-box {
+  /* background-position: center; */
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode: overlay;
+  margin: 0;
+  padding: 12.5px 40px 12.5px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-box-title {
+  color: attr(font);
+  font-size: 3em;
+  font-weight: bold;
+  font-family: Inter, sans-serif;
+  margin: 2px;
+}
+
+@media screen and (max-width: 300px) {
+  .title-box-title {
+    font-size: 2em;
+  }
+}

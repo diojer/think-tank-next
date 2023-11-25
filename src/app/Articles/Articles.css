@@ -1,0 +1,51 @@
+.articles-wrapper {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.articles-WIP-message {
+  text-align: left;
+  color: grey;
+}
+
+.articles-WIP-message-title {
+  font-size: 2em;
+  margin-bottom: 0;
+}
+.articles-WIP-message-text {
+  font-size: 1.2em;
+  margin-top: 0;
+}
+
+@keyframes fadeAndRise {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+	animation: fadeAndRise 0.5s ease-in-out;
+}
+.article-card-whole {
+  animation: fadeAndRise 0.5s ease-in-out;
+}
+
+.article-card-title {
+  animation: fadeAndRise 0.8s ease-in-out;
+}
+
+.article--author {
+  animation: fadeAndRise 0.4s ease-in-out;
+}
+
+.article-subject {
+	animation: fadeAndRise 0.8s ease-in-out;
+}
