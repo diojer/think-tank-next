@@ -10,8 +10,10 @@ export function ArticleCard({ subject, thumbnail, title, type, author, path }) {
         <p className="article-subject">{subject}</p>
         <Image
           className="article-thumbnail"
-          img={`${thumbnail}`}
+          src={`${thumbnail}`}
           alt="Article Thumbnail"
+          width="1000"
+          height="1000"
         />
         {path ? (
           <Link href={path} className="article-card-title">
