@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <>
       <Head>
-        <title>Leeds Think Tank</title>
+        <title>Leeds Think Tank - Home</title>
       </Head>
       <p>Home Page</p>
     </>
