@@ -3,6 +3,7 @@ import Head from "next/head";
 import { ArticleCard } from "@/components/ArticleCard";
 import { TitleBox } from "@/components/TitleBox";
 import "./Articles.css";
+import { get } from "http";
 
 const articles_path = `${process.env.APP_URL}/api/articles/`;
 
@@ -14,7 +15,6 @@ async function getArticles() {
 
 export default async function Articles() {
   const articles = await getArticles();
-  console.log(articles.data);
   return (
     <>
       <>
@@ -25,18 +25,22 @@ export default async function Articles() {
         >
           Articles<span className="hilite">.</span>
         </TitleBox>
-        <div className="articles-wrapper">
-          {articles.data.map((article) => (
-            <ArticleCard
-              key={article.id} // Add a unique key for each iteration
-              subject={article.subject}
-              thumbnail={`${process.env.VITE_API_PUBLIC_URL}${article.cardImage}`}
-              title={article.title}
-              type="Article"
-              author={article.author}
-              path={`/Articles/${article.id}`}
-            />
-          ))}
+        <div className="articles-aligner">
+          <div className="articles-column">
+            <div className="articles-wrapper">
+              {articles.data.map((article) => (
+                <ArticleCard
+                  key={article.id} // Add a unique key for each iteration
+                  subject={article.subject}
+                  thumbnail={`${process.env.APP_PUBLIC_URL}${article.cardImage}`}
+                  title={article.title}
+                  type="Article"
+                  author={article.author}
+                  path={`/Articles/${article.id}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </>
     </>
