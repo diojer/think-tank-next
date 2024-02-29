@@ -1,0 +1,91 @@
+.btn {
+  font-family: Inter, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn--primary {
+  font-size: 1em;
+  /* padding: 10px 20px 10px 20px; Change back if you want, just making the login page look more uniform*/
+	padding: 15px 15px;
+  background: var(--primary);
+  border: none;
+  color: white;
+}
+
+.btn--primary:hover {
+  transition: 0.25s;
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn--secondary {
+  background: var(--primary);
+  border: none;
+  border-radius: 5px;
+  color: var(--fontPrimary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn--third {
+  background: transparent;
+  border: 3px solid white;
+  padding: 10px;
+  font-size: 0.9em;
+  border-radius: 10px;
+  color: var(--fontPrimary);
+}
+
+.btn--red {
+  font-size: 0.9em;
+  padding: 10px 20px 10px 20px;
+  background: red;
+  border: none;
+  color: white;
+}
+
+.btn--red:hover {
+  background: darkred;
+  transition: 0.25s;
+}
+
+.btn--third:hover {
+  border: 3px solid rgb(160, 160, 160);
+}
+
+.btn--fourth {
+  background: var(--primary);
+  border: none;
+  /* border-radius: 5px; */
+  color: white;
+  padding: 15px;
+	font-size: 1rem;
+}
+
+.btn--fourth:hover {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn--blue {
+  font-size: 0.9em;
+  padding: 10px 20px 10px 20px;
+  border: none;
+  background-color: rgb(83, 83, 255);
+  color: white;
+}
+
+.btn--blue:hover {
+  background-color: rgb(49, 49, 255);
+  color: white;
+}
