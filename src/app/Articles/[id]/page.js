@@ -47,7 +47,7 @@ export default async function ShowArticle(params) {
     const timeNow = new Date();
     // Calculate time difference in seconds
     let timeDifference = Math.floor(Math.abs(articleCreatedAt - timeNow) / 36e5);
-		console.log(timeDifference);
+    console.log(timeDifference);
 
     // Set the time based on time difference
     if (timeDifference < 24) {
@@ -64,7 +64,7 @@ export default async function ShowArticle(params) {
     }
   };
 
-	const time = getTime();
+  const time = getTime();
 
   return (
     <>
@@ -163,21 +163,7 @@ export default async function ShowArticle(params) {
               </div> */}
               <div className="selected-article-content">
                 {article &&
-                  parse(article.content, {
-                    //parsing to html and adding target="_blank" to all <a> tags
-                    transform: (element, DOM, index) => {
-                      if (DOM.attribs && DOM.attribs.href) {
-                        DOM.attribs.target = "_blank";
-                        const props = attributesToProps(DOM.attribs);
-                        return (
-                          <a {...props}>
-                            {element.props.children.props.children}
-                          </a> //what the fuck is this syntax man
-                        );
-                      }
-                      return <>{element}</>;
-                    },
-                  })}
+                  parse(article.content)}
               </div>
             </div>
           </div>
