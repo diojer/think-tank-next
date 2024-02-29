@@ -36,7 +36,7 @@ export default async function Articles() {
                   title={article.title}
                   type="Article"
                   author={article.author}
-                  path={`/Articles/${article.id}`}
+                  path={`/articles/${article.id}`}
                 />
               ))}
             </div>

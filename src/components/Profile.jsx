@@ -1,8 +1,8 @@
 import React from "react";
 import "./Profile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import LazyBackgroundImage from "../utility/LazyBackgroundLoading/LazyBackgroundImage";
+import { Link } from "next/link";
+import Image from "next/image";
 
 export const Profile = ({
   children,
@@ -16,10 +16,12 @@ export const Profile = ({
   return (
     <div className="profile-wrapper">
       <div className="profile-primary">
-        <LazyBackgroundImage
+        <Image
           className="profile-image"
-          img={`${image}`}
-        ></LazyBackgroundImage>
+          src={`${image}`}
+          width="1000"
+          height="1000"
+        ></Image>
         <div className="profile-text">
           <p className="profile-name">{name}</p>
           <p className="profile-position">{position}</p>
