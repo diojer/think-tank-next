@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Button.css";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
 
 const STYLES = [
   "btn--primary",
@@ -27,7 +27,7 @@ export const Button = ({
   return (
     <>
       {path ? (
-        <Link to={path}>
+        <Link href={path}>
           <button className={`btn ${checkButtonStyle} ${checkButtonSize} `}>
             {children}
           </button>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./ImageButton.css";
-import LazyBackgroundImage from "../utility/LazyBackgroundLoading/LazyBackgroundImage";
+// import LazyBackgroundImage from "../utility/LazyBackgroundLoading/LazyBackgroundImage";
+import Image from "next/image";
 import Link from "next/link";
 
 const SHAPES = ["imgb--rect", "imgb--square", "imgb--thin"]; //Array of possible shapes
@@ -22,28 +23,31 @@ export const ImageButton = ({
           target="_blank"
           className={`image-button-link ${checkShape}`}
         >
-          <LazyBackgroundImage
-            img={`${image}`}
+          <div
+            src={`${image}`}
             className={`image-button ${checkShape}`}
             style={{
               backgroundColor: `${color}`,
+              backgroundImage: `url("${image}")`
             }}
           >
             <p className="image-button-text">{children}</p>
-          </LazyBackgroundImage>
+          </div>
         </a>
       ) : (
         //If it's not opening a new page, I use <Link>.
-        <Link to={path} className={`image-button-link ${checkShape}`}>
-          <LazyBackgroundImage
+        <Link href={path} className={`image-button-link ${checkShape}`}>
+          <div
             className={`image-button ${checkShape}`}
-            img={image}
+            width="1000"
+            height="1000"
             style={{
               backgroundColor: `${color}`,
+              backgroundImage: `url("${image}")`
             }}
           >
             <p className="image-button-text">{children}</p>
-          </LazyBackgroundImage>
+          </div>
         </Link>
       )}
     </>

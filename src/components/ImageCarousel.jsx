@@ -1,35 +1,28 @@
+'use client';
 import React from "react";
 import "./ImageCarousel.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "./splide-default.min.css";
 import { Button } from "./Button";
-import LazyBackgroundImage from "../utility/LazyBackgroundLoading/LazyBackgroundImage";
+import Image from "next/image";
 
 export const ImageCarousel = ({ articles, options }) => {
+  const imagepath = "http://127.0.0.1:8000/storage"
   return (
     <div className="image-carousel-wrapper">
       <Splide options={options}>
         {articles.map((value, key) => {
           return (
             <SplideSlide key={key}>
-              {/* <img
-                src={`${import.meta.env.VITE_API_PUBLIC_URL}${
-                  value.bannerImage
-                }`}
-                data-splide-lazy={`${import.meta.env.VITE_API_PUBLIC_URL}${
-                  value.bannerImage
-                }`}
-                alt=""
-              /> */}
-              <LazyBackgroundImage
-                img={`${import.meta.env.VITE_API_PUBLIC_URL}${
-                  value.bannerImage
-                }`}
+              <div
+                src={`${imagepath}${value.bannerImage
+                  }`}
                 style={{
                   height: "450px",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center center",
                   backgroundSize: "cover",
+                  backgroundImage: `url("${imagepath}${value.bannerImage}")`,
                 }}
                 className="carousel-background-image"
               >
@@ -46,7 +39,7 @@ export const ImageCarousel = ({ articles, options }) => {
                     </Button>
                   </div>
                 </div>
-              </LazyBackgroundImage>
+              </div>
             </SplideSlide>
           );
         })}

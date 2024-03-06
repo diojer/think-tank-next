@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./Navbar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import Cookies from "js-cookie";
-import axios from "axios";
-import { UseStateContext } from "../contexts/ContextProvider";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faBars } from "@fortawesome/free-solid-svg-icons";
+// import Cookies from "js-cookie";
+// import axios from "axios";
+// import { UseStateContext } from "../contexts/ContextProvider";
 
 function Navbar() {
-  const { admin } = UseStateContext();
+  const { admin } = true;
   return (
     <nav>
       <div className="wrapper">
         <div className="logo">
-          <Link to="/" className="logo-wrapper">
-            <img className="navbar-logo" src="/images/img-20.png" alt="Logo" />
+          <Link href="/" className="logo-wrapper">
+            <div className="navbar-logo" style={{ backgroundImage: "/images/img-20.png" }} />
             <p className="logo-text">Leeds Think Tank</p>
           </Link>
         </div>
@@ -22,18 +21,18 @@ function Navbar() {
         <input type="radio" name="slider" id="close-btn" />
         <ul className="nav-links">
           <label htmlFor="close-btn" className="btn close-btn">
-            <FontAwesomeIcon icon={faBars} />
+            {/* <FontAwesomeIcon icon={faBars} /> */}
           </label>
           <li>
-            <Link to="/">Home</Link>
+            <Link href="/">Home</Link>
           </li>
           <li className="dropdown">
-            <Link to="#" className="dropbtn">
-              About Us <FontAwesomeIcon icon="fa-chevron-down" />
+            <Link href="#" className="dropbtn">
+              About Us {/*<FontAwesomeIcon icon="fa-chevron-down" />*/}
             </Link>
             <div className="dropdown-content">
-              <Link to="/about-us/team">Team</Link>
-              <Link to="/about-us/platform">Our Platform</Link>
+              <Link href="/about-us/team">Team</Link>
+              <Link href="/about-us/platform">Our Platform</Link>
             </div>
           </li>
           <li>
@@ -46,46 +45,43 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <Link to="/articles">Articles</Link>
+            <Link href="/articles">Articles</Link>
           </li>
           <li>
-            <Link to="/reports">Reports</Link>
+            <Link href="/reports">Reports</Link>
           </li>
           <li className="dropdown">
-            <Link to="#" className="dropbtn">
-              Media <FontAwesomeIcon icon="fa-chevron-down" />
+            <Link href="#" className="dropbtn">
+              Media {/*<FontAwesomeIcon icon="fa-chevron-down" />*/}
             </Link>
             <div className="dropdown-content">
-              <Link to="/media/appearances">Media Appearances</Link>
-              <Link to="/media/press-releases">Press Releases</Link>
+              <Link href="/media-appearances">Media Appearances</Link>
+              <Link href="/press-release">Press Releases</Link>
             </div>
           </li>
           <li>
-            <Link to="/sponsors">Sponsors</Link>
+            <Link href="/sponsors">Sponsors</Link>
           </li>
           {/* Login Page */}
           <li>
-            <Link to="/login">
-              <FontAwesomeIcon icon="fa-solid fa-user" />
+            <Link href="/login">
+              {/* <FontAwesomeIcon icon="fa-solid fa-user" /> */}
             </Link>
           </li>
           {/* Searchbar */}
           <li>
-            <Link>
-              <FontAwesomeIcon icon="fa-magnifying-glass" />
-            </Link>
           </li>
           {/* Admin */}
           {admin && (
             <li>
-              <Link to="/portal/upload">
-                <FontAwesomeIcon icon="fa-pencil" />
+              <Link href="/portal/upload">
+                {/* <FontAwesomeIcon icon="fa-pencil" /> */}
               </Link>
             </li>
           )}
         </ul>
         <label htmlFor="menu-btn" className="btn menu-btn">
-          <FontAwesomeIcon icon={faBars} />
+          {/* <FontAwesomeIcon icon={faBars} /> */}
         </label>
       </div>
     </nav>

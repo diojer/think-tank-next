@@ -8,12 +8,12 @@ export function ArticleCard({ subject, thumbnail, title, type, author, path }) {
     <div className="article-card-whole">
       <div className="article-card">
         <p className="article-subject">{subject}</p>
-        <Image
+        <div
           className="article-thumbnail"
-          src={`${thumbnail}`}
+          style={{
+            backgroundImage: `url("${thumbnail}")`
+          }}
           alt="Article Thumbnail"
-          width="1000"
-          height="1000"
         />
         {path ? (
           <Link href={path} className="article-card-title">

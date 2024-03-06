@@ -1,11 +1,12 @@
+'use client'
 import React from "react";
 import "./Footer.css";
 import { Button } from "./Button";
-import { Link } from "react-router-dom";
+import Link from "next/head";
 import { NewTabLink } from "./NewTabLink";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import axiosClient from "../utility/axios-client";
+// import axiosClient from "../utility/axios-client";
 
 //FA Imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -133,21 +134,21 @@ function Footer() {
               link="https://www.instagram.com/leedsthinktank/"
               aria-label="Instagram"
             >
-              <FontAwesomeIcon icon="fab fa-instagram" />
+              {/* <FontAwesomeIcon icon="fab fa-instagram" /> */}
             </NewTabLink>
             <NewTabLink
               className="social-icon-link linkedin"
               link="https://www.linkedin.com/company/leeds-think-tank-society/"
               aria-label="LinkedIn"
             >
-              <FontAwesomeIcon icon="fab fa-linkedin" />
+              {/* <FontAwesomeIcon icon="fab fa-linkedin" /> */}
             </NewTabLink>
             <NewTabLink
               className="social-icon-link twitter"
               link="https://twitter.com/leedsthinktank"
               aria-label="Twitter"
             >
-              <FontAwesomeIcon icon="fab fa-twitter" />
+              {/* <FontAwesomeIcon icon="fab fa-twitter" /> */}
             </NewTabLink>
           </div>
         </div>
