@@ -7,25 +7,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "127.0.0.1",
-        port: "8000",
-        pathname: "/storage/**",
-      },
-      {
         protocol: "https",
-        hostname: "api.leedsthinktank.org.uk",
+        hostname: "**",
         port: "",
-        pathname: "/storage/**",
-      },
-      {
-        protocol: "http",
-        hostname: "127.0.0.1",
-        port: "3000",
-        pathname: "/public/images/**",
+        pathname: "**",
       },
     ],
-    domains: ["127.0.0.1", "api.leedsthinktank.org.uk"],
   },
 };
 
