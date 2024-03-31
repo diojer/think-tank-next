@@ -3,6 +3,7 @@ import "./Profile.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "next/link";
 import Image from "next/image";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export const Profile = ({
   children,
@@ -16,12 +17,14 @@ export const Profile = ({
   return (
     <div className="profile-wrapper">
       <div className="profile-primary">
-        <Image
-          className="profile-image"
-          src={`${image}`}
-          width="1000"
-          height="1000"
-        ></Image>
+        <div className="profile-image-container">
+          <Image
+            className="profile-image"
+            src={`${image}`}
+            fill
+            objectFit="cover"
+          />
+        </div>
         <div className="profile-text">
           <p className="profile-name">{name}</p>
           <p className="profile-position">{position}</p>
@@ -30,7 +33,7 @@ export const Profile = ({
           <p className="profile-year_of_study">{year_of_study}</p>
           <p className="profile-linkedin-logo">
             <a href={`${linkedin}`} target="_blank">
-              <FontAwesomeIcon icon="fab fa-linkedin" />
+              <FontAwesomeIcon icon={faLinkedin} />
             </a>
           </p>
         </div>

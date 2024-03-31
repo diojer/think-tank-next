@@ -1,7 +1,27 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+//Font imports
+import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
+
+//FontAwesome imports
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const poppinsLight = Poppins({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-poppins-light",
+});
+const poppinsBold = Poppins({
+  weight: "600",
+  subsets: ["latin"],
+  variable: "--font-poppins-bold",
+});
 
 export const metadata = {
   title: "Leeds Think Tank",
@@ -12,9 +32,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <>
-      <html lang="en">
-        <body className={inter.className}>
+      <html
+        lang="en"
+        className={`${inter.variable} ${poppinsLight.variable} ${poppinsBold.variable}`}
+      >
+        <body>
+          <Navbar />
           <div className="page-wrapper">{children}</div>
+          <Footer />
         </body>
       </html>
     </>

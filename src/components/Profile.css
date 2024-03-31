@@ -48,9 +48,8 @@
   font-weight: bold;
 }
 
-.profile-image {
-  background-size: cover;
-  background-position: center;
+.profile-image-container {
+  position: relative;
   height: 250px;
   width: 200px;
 }

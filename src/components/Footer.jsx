@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import "./Footer.css";
 import { Button } from "./Button";
@@ -10,6 +10,11 @@ import * as Yup from "yup";
 
 //FA Imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const addToMailingList = (data, helpers) => {
   axiosClient
@@ -35,8 +40,8 @@ function Footer() {
     <div className="footer-container">
       <section className="footer-subscription">
         <p className="footer-subscription-heading">
-          Join the Leeds Think Tank mailing list to be kept up-to-date on future
-          speakers and workshops.
+          Join the Leeds Policy Institute mailing list to be kept up-to-date on
+          future speakers and workshops.
         </p>
         <p className="footer-subscription-text">
           You can unsubscribe at any time.
@@ -121,36 +126,32 @@ function Footer() {
       </div>
       <section className="social-media">
         <div className="social-media-wrap">
-          {/* <div className="footer-logo">
-            <Link to="/" className="social-logo">
-              LTT
-              <i className="fab fa-typo3" />
-            </Link>
-          </div>
-          <small className="website-rights">LTT © 2020</small> */}
           <div className="social-icons">
             <NewTabLink
               className="social-icon-link instagram"
               link="https://www.instagram.com/leedsthinktank/"
               aria-label="Instagram"
             >
-              {/* <FontAwesomeIcon icon="fab fa-instagram" /> */}
+              <FontAwesomeIcon icon={faInstagram} />
             </NewTabLink>
             <NewTabLink
               className="social-icon-link linkedin"
               link="https://www.linkedin.com/company/leeds-think-tank-society/"
               aria-label="LinkedIn"
             >
-              {/* <FontAwesomeIcon icon="fab fa-linkedin" /> */}
+              <FontAwesomeIcon icon={faLinkedin} />
             </NewTabLink>
             <NewTabLink
               className="social-icon-link twitter"
               link="https://twitter.com/leedsthinktank"
               aria-label="Twitter"
             >
-              {/* <FontAwesomeIcon icon="fab fa-twitter" /> */}
+              <FontAwesomeIcon icon={faTwitter} />
             </NewTabLink>
           </div>
+          <small className="website-rights">
+            Leeds Policy Institute © 2024
+          </small>
         </div>
       </section>
     </div>

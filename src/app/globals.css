@@ -2,16 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --primary: #00502f;
   --secondary: #00301c;
   --fontPrimary: #f2f2f2;
 }
 
+p {
+  font-family: var(--font-poppins-light);
+}
+
 .page-wrapper {
   padding-top: 70px;
   padding-bottom: 0;
+  font-family: var(--font-poppins-light);
 }
 
 /* :root {

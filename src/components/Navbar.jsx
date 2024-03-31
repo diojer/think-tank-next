@@ -1,10 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 import "./Navbar.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBars } from "@fortawesome/free-solid-svg-icons";
 // import Cookies from "js-cookie";
 // import axios from "axios";
 // import { UseStateContext } from "../contexts/ContextProvider";
+
+//FontAwesome Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars,
+  faUser,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   const { admin } = true;
@@ -13,22 +20,24 @@ function Navbar() {
       <div className="wrapper">
         <div className="logo">
           <Link href="/" className="logo-wrapper">
-            <div className="navbar-logo" style={{ backgroundImage: "/images/img-20.png" }} />
-            <p className="logo-text">Leeds Think Tank</p>
+            <div className="navbar-logo">
+              <Image src="/images/img-20.png" fill objectFit="contain" />
+            </div>
+            <p className="logo-text">Leeds Policy Institute</p>
           </Link>
         </div>
         <input type="radio" name="slider" id="menu-btn" />
         <input type="radio" name="slider" id="close-btn" />
         <ul className="nav-links">
           <label htmlFor="close-btn" className="btn close-btn">
-            {/* <FontAwesomeIcon icon={faBars} /> */}
+            <FontAwesomeIcon icon={faBars} />
           </label>
           <li>
             <Link href="/">Home</Link>
           </li>
           <li className="dropdown">
             <Link href="#" className="dropbtn">
-              About Us {/*<FontAwesomeIcon icon="fa-chevron-down" />*/}
+              About Us <FontAwesomeIcon icon={faChevronDown} />
             </Link>
             <div className="dropdown-content">
               <Link href="/about-us/team">Team</Link>
@@ -52,7 +61,7 @@ function Navbar() {
           </li>
           <li className="dropdown">
             <Link href="#" className="dropbtn">
-              Media {/*<FontAwesomeIcon icon="fa-chevron-down" />*/}
+              Media <FontAwesomeIcon icon={faChevronDown} />
             </Link>
             <div className="dropdown-content">
               <Link href="/media-appearances">Media Appearances</Link>
@@ -65,23 +74,22 @@ function Navbar() {
           {/* Login Page */}
           <li>
             <Link href="/login">
-              {/* <FontAwesomeIcon icon="fa-solid fa-user" /> */}
+              <FontAwesomeIcon icon={faUser} />
             </Link>
           </li>
           {/* Searchbar */}
-          <li>
-          </li>
+          <li></li>
           {/* Admin */}
           {admin && (
             <li>
               <Link href="/portal/upload">
-                {/* <FontAwesomeIcon icon="fa-pencil" /> */}
+                <FontAwesomeIcon icon={faPencil} />
               </Link>
             </li>
           )}
         </ul>
         <label htmlFor="menu-btn" className="btn menu-btn">
-          {/* <FontAwesomeIcon icon={faBars} /> */}
+          <FontAwesomeIcon icon={faBars} />
         </label>
       </div>
     </nav>
