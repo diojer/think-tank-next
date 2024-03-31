@@ -2,7 +2,6 @@ import React from "react";
 import "./ShowArticle.css";
 import { TitleBox } from "../../../components/TitleBox";
 import parse, { attributesToProps } from "html-react-parser";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   WhatsappShareButton,
   EmailShareButton,
