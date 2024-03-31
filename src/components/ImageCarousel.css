@@ -36,16 +36,9 @@
   max-width: 80%;
 }
 
-.carousel-wrapper {
+.carousel-background-image {
   padding: 60px;
   box-sizing: border-box;
-  height: 450px;
-  width: 100%;
-  position: relative;
-}
-
-.carousel-background-image {
-  z-index: -1;
 }
 
 @media screen and (max-width: 800px) {

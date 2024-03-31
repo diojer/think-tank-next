@@ -12,8 +12,46 @@ p {
   font-family: var(--font-poppins-light);
 }
 
+p.center {
+  text-align: center;
+}
+
+span.orange {
+  color: #f0b71a;
+}
+
+span.red {
+  color: red;
+}
+
+span.hilite {
+  color: #84ba4f;
+}
+
+span.primary {
+  color: var(--primary);
+}
+
+h6 {
+  line-height: 100% !important;
+}
+
+.linebreak__style__1 {
+  margin: 0 10px 0 10px;
+}
+
+.page-wrapper {
+  padding-top: 70px;
+  padding-bottom: 0;
+}
+
 a {
   color: var(--primary);
+}
+
+a.tooltip {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .page-wrapper {

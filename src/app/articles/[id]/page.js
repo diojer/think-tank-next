@@ -7,7 +7,6 @@ import { headers } from "next/headers";
 
 //API calls
 import { getArticle, indexArticles } from "@/lib/articles";
-import { Share } from "next/font/google";
 
 export async function generateStaticParams() {
   const articles = await indexArticles();
@@ -53,7 +52,7 @@ export default async function ShowArticle({ params }) {
       {article ? (
         <>
           <TitleBox
-            image={`${process.env.VITE_API_PUBLIC_URL}${article.bannerImage}`}
+            image={`${process.env.APP_PUBLIC_URL}${article.bannerImage}`}
             color="#2e2d2b"
             font="white"
             type="center"

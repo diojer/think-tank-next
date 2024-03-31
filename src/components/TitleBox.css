@@ -18,7 +18,7 @@
   color: attr(font);
   font-size: 3em;
   font-weight: bold;
-  font-family: Inter, sans-serif;
+  font-family: var(--font-inter);
   margin: 2px;
 }
 

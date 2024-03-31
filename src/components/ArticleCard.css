@@ -13,11 +13,9 @@
   font-size: 0.8em;
 }
 
-.article-thumbnail {
+.article-thumbnail-wrapper {
   height: 250px;
   width: 100%;
-  background-size: cover;
-  background-position: center;
   position: relative;
 }
 

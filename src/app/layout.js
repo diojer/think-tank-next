@@ -12,7 +12,11 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 const poppinsLight = Poppins({
   weight: "400",
   subsets: ["latin"],
