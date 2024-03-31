@@ -22,7 +22,7 @@ export default async function Articles() {
         <div className="articles-aligner">
           <div className="articles-column">
             <div className="articles-wrapper">
-              {articles.data.map((article, key) => (
+              {articles.map((article, key) => (
                 <ArticleCard
                   key={key}
                   subject={article.subject}

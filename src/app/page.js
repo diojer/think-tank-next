@@ -41,7 +41,7 @@ export default async function Home() {
   return (
     <>
       <ImageCarousel
-        articles={articles.data.slice(0, numOfArticles)}
+        articles={articles.slice(0, numOfArticles)}
         options={carouselOptions}
       />
       <div className="home-column-wrapper">
@@ -82,7 +82,7 @@ export default async function Home() {
               newTabs={[true, true, false]}
             />
             <div className="article-cards-wrapper">
-              {articles.data.slice(0, numOfArticles).map((value, key) => {
+              {articles.slice(0, numOfArticles).map((value, key) => {
                 return (
                   <ArticleCard
                     key={key}
