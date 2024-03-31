@@ -12,6 +12,10 @@ p {
   font-family: var(--font-poppins-light);
 }
 
+a {
+  color: var(--primary);
+}
+
 .page-wrapper {
   padding-top: 70px;
   padding-bottom: 0;

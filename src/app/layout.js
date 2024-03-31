@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 //Font imports
 import { Inter } from "next/font/google";
 import { Poppins } from "next/font/google";
+import { Domine } from "next/font/google";
 
 //FontAwesome imports
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -22,6 +23,10 @@ const poppinsBold = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins-bold",
 });
+const domine = Domine({
+  subsets: ["latin"],
+  variable: "--font-domine",
+});
 
 export const metadata = {
   title: "Leeds Think Tank",
@@ -34,7 +39,7 @@ export default function RootLayout({ children }) {
     <>
       <html
         lang="en"
-        className={`${inter.variable} ${poppinsLight.variable} ${poppinsBold.variable}`}
+        className={`${inter.variable} ${poppinsLight.variable} ${poppinsBold.variable} ${domine.variable}`}
       >
         <body>
           <Navbar />
