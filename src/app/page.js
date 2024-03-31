@@ -8,22 +8,18 @@ import { ArticleCard } from "@/components/ArticleCard";
 import { TitleBox } from "@/components/TitleBox";
 import Head from "next/head";
 
-const articles_path = `${process.env.APP_URL}/api/articles/`;
-
-async function getArticles() {
-  const response = await fetch(articles_path);
-  const data = await response.json();
-  return data;
-}
+//API Calls
+import { indexArticles } from "@/lib/articles";
 
 export const metadata = {
-  title: 'Leeds Think Tank - Home',
-  description: 'Leeds Think Tank (LTT) is a student-led and student-run think tank dedicated to undertaking empirically driven research and non-partisan policy that centres on both local and national issues.',
-}
+  title: "Leeds Think Tank - Home",
+  description:
+    "Leeds Think Tank (LTT) is a student-led and student-run think tank dedicated to undertaking empirically driven research and non-partisan policy that centres on both local and national issues.",
+};
 
 export default async function Home() {
-  const articles = await getArticles();
-  const numOfArticles = 6
+  const articles = await indexArticles();
+  const numOfArticles = 6;
   const carouselOptions = {
     //Options, for more information see https://splidejs.com/guides/options/
     speed: 1750,
@@ -91,8 +87,7 @@ export default async function Home() {
                   <ArticleCard
                     key={key}
                     subject={value.subject}
-                    thumbnail={`${process.env.APP_PUBLIC_URL}${value.cardImage
-                      }`}
+                    thumbnail={`${process.env.APP_PUBLIC_URL}${value.cardImage}`}
                     title={value.title}
                     type="Article"
                     author={value.author}

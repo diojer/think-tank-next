@@ -25,17 +25,18 @@ import {
 } from "react-share";
 import { headers } from "next/headers";
 
-const articles_path = `${process.env.APP_URL}/api/articles/`;
-
-async function getArticle(id) {
-  const response = await fetch(`${articles_path}${id}`);
-  const data = await response.json();
-  return data.data;
+//API calls
+import { getArticle, indexArticles } from "@/lib/articles";
+export async function generateStaticParams() {
+  const articles = await indexArticles;
+  return articles.map((article) => {
+    id: article.id;
+  });
 }
 
-export default async function ShowArticle(params) {
+export default async function ShowArticle({ params }) {
   // Get article id
-  const id = params.params.id;
+  const { id } = params;
   const article = await getArticle(id);
 
   // window.location.href alternative (can't do that in server components)
@@ -46,7 +47,9 @@ export default async function ShowArticle(params) {
     const articleCreatedAt = new Date(article.created_at);
     const timeNow = new Date();
     // Calculate time difference in seconds
-    let timeDifference = Math.floor(Math.abs(articleCreatedAt - timeNow) / 36e5);
+    let timeDifference = Math.floor(
+      Math.abs(articleCreatedAt - timeNow) / 36e5
+    );
     console.log(timeDifference);
 
     // Set the time based on time difference
@@ -162,8 +165,7 @@ export default async function ShowArticle(params) {
                 </div>
               </div> */}
               <div className="selected-article-content">
-                {article &&
-                  parse(article.content)}
+                {article && parse(article.content)}
               </div>
             </div>
           </div>
