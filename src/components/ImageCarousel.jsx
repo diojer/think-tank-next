@@ -14,17 +14,13 @@ export const ImageCarousel = ({ articles, options }) => {
         {articles.map((value, key) => {
           return (
             <SplideSlide key={key}>
-              <div
-                src={`${imagepath}${value.bannerImage}`}
-                style={{
-                  height: "450px",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center center",
-                  backgroundSize: "cover",
-                  backgroundImage: `url("${imagepath}${value.bannerImage}")`,
-                }}
-                className="carousel-background-image"
-              >
+              <div className="carousel-wrapper">
+                <Image
+                  fill
+                  src={`${imagepath}${value.bannerImage}`}
+                  objectFit="cover"
+                  className="carousel-background-image"
+                />
                 <div className="text-wrapper">
                   <p className="carousel-article-title">{value.title}</p>
                   <p className="carousel-article-author">{`By ${value.author}`}</p>
