@@ -27,11 +27,12 @@ import { headers } from "next/headers";
 
 //API calls
 import { getArticle, indexArticles } from "@/lib/articles";
+
 export async function generateStaticParams() {
-  const articles = await indexArticles;
-  return articles.map((article) => {
-    id: article.id;
-  });
+  const articles = await indexArticles();
+  return articles.map((article) => ({
+    id: article.id.toString(),
+  }));
 }
 
 export default async function ShowArticle({ params }) {
@@ -50,8 +51,6 @@ export default async function ShowArticle({ params }) {
     let timeDifference = Math.floor(
       Math.abs(articleCreatedAt - timeNow) / 36e5
     );
-    console.log(timeDifference);
-
     // Set the time based on time difference
     if (timeDifference < 24) {
       return `${timeDifference} hour(s) ago.`;
