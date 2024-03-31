@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 import "./ImageCarousel.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -7,7 +7,7 @@ import { Button } from "./Button";
 import Image from "next/image";
 
 export const ImageCarousel = ({ articles, options }) => {
-  const imagepath = "http://127.0.0.1:8000/storage"
+  const imagepath = process.env.APP_PUBLIC_URL;
   return (
     <div className="image-carousel-wrapper">
       <Splide options={options}>
@@ -15,8 +15,7 @@ export const ImageCarousel = ({ articles, options }) => {
           return (
             <SplideSlide key={key}>
               <div
-                src={`${imagepath}${value.bannerImage
-                  }`}
+                src={`${process.env.APP_PUBLIC_URL}${value.bannerImage}`}
                 style={{
                   height: "450px",
                   backgroundRepeat: "no-repeat",
