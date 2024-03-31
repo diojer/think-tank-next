@@ -15,7 +15,7 @@ export const ImageCarousel = ({ articles, options }) => {
           return (
             <SplideSlide key={key}>
               <div
-                src={`${process.env.APP_PUBLIC_URL}${value.bannerImage}`}
+                src={`${imagepath}${value.bannerImage}`}
                 style={{
                   height: "450px",
                   backgroundRepeat: "no-repeat",

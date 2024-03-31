@@ -2,30 +2,12 @@ import React from "react";
 import "./ShowArticle.css";
 import { TitleBox } from "../../../components/TitleBox";
 import parse, { attributesToProps } from "html-react-parser";
-import {
-  WhatsappShareButton,
-  EmailShareButton,
-  FacebookShareButton,
-  FacebookMessengerShareButton,
-  TwitterShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  LinkedinShareButton,
-} from "react-share";
-import {
-  WhatsappIcon,
-  EmailIcon,
-  FacebookIcon,
-  FacebookMessengerIcon,
-  TwitterIcon,
-  RedditIcon,
-  TelegramIcon,
-  LinkedinIcon,
-} from "react-share";
+import ShareBar from "@/components/ShareBar";
 import { headers } from "next/headers";
 
 //API calls
 import { getArticle, indexArticles } from "@/lib/articles";
+import { Share } from "next/font/google";
 
 export async function generateStaticParams() {
   const articles = await indexArticles();
@@ -58,15 +40,14 @@ export default async function ShowArticle({ params }) {
       return `${timeDifference} day(s) ago.`;
     } else if (timeDifference < 365 * 12) {
       timeDifference = Math.round(timeDifference / 30);
-      return `${timeDifference} months ago.`;
+      return `${timeDifference} month(s) ago.`;
     } else {
       timeDifference = Math.round(timeDifference / 365);
-      return `${timeDifference} years ago.`;
+      return `${timeDifference} year(s) ago.`;
     }
   };
 
   const time = getTime();
-
   return (
     <>
       {article ? (
@@ -86,82 +67,7 @@ export default async function ShowArticle({ params }) {
               <p className="selected-article-author">
                 Published by <a>{article.author}</a> {time}
               </p>
-              {/* <div className="sharebtn">
-                <button className="hover-shake share-btns">
-                  <FontAwesomeIcon icon="fa-solid fa-share" />
-                </button>
-                <div className="share-options">
-                  <FacebookShareButton
-                    url={shareUrl}
-                    title={article.title}
-                    appId="1015935046327073"
-                    share-btns
-                    resetButtonStyle={false}
-                  >
-                    <FacebookIcon round={true} />
-                  </FacebookShareButton>
-                  <FacebookMessengerShareButton
-                    url={shareUrl}
-                    quote={article.title}
-                    appId="1015935046327073"
-                    share-btns
-                    resetButtonStyle={false}
-                  >
-                    <FacebookMessengerIcon round={true} />
-                  </FacebookMessengerShareButton>
-                  <TwitterShareButton
-                    url={shareUrl}
-                    title={`${article.title} by ${article.author}`}
-                    via="leedsthinktank"
-                    share-btns
-                    resetButtonStyle={false}
-                  >
-                    <TwitterIcon round={true} />
-                  </TwitterShareButton>
-                  <LinkedinShareButton
-                    url={shareUrl}
-                    source="Leeds Think Tank"
-                    title={article.title}
-                    share-btns
-                    resetButtonStyle={false}
-                  >
-                    <LinkedinIcon round={true} />
-                  </LinkedinShareButton>
-                  <RedditShareButton
-                    url={shareUrl}
-                    title={`${article.title} by ${article.author}`}
-                    share-btns
-                    resetButtonStyle={false}
-                  >
-                    <RedditIcon round={true} />
-                  </RedditShareButton>
-                  <WhatsappShareButton
-                    url={shareUrl}
-                    title={`${article.title} by ${article.author}`}
-                    share-btns
-                    resetButtonStyle={false}
-                  >
-                    <WhatsappIcon round={true} />
-                  </WhatsappShareButton>
-                  <TelegramShareButton
-                    url={shareUrl}
-                    title={article.title}
-                    share-btns
-                    resetButtonStyle={false}
-                  >
-                    <TelegramIcon round={true} />
-                  </TelegramShareButton>
-                  <EmailShareButton
-                    url={shareUrl}
-                    subject={`${article.title} by ${article.author}`}
-                    body="Here's an article by the Leeds Think Tank: "
-                    share-btns
-                    resetButtonStyle={false}
-                  >
-                    <EmailIcon round={true} />
-                  </EmailShareButton>
-                </div>
-              </div> */}
+              <ShareBar shareUrl={shareUrl} article={article} />
               <div className="selected-article-content">
                 {article && parse(article.content)}
               </div>

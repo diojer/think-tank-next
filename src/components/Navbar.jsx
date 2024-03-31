@@ -64,8 +64,8 @@ function Navbar() {
               Media <FontAwesomeIcon icon={faChevronDown} />
             </Link>
             <div className="dropdown-content">
-              <Link href="/media-appearances">Media Appearances</Link>
-              <Link href="/press-release">Press Releases</Link>
+              <Link href="/media/appearances">Media Appearances</Link>
+              <Link href="/media/press-releases">Press Releases</Link>
             </div>
           </li>
           <li>

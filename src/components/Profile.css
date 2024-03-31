@@ -48,6 +48,13 @@
   font-weight: bold;
 }
 
+.profile-image {
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 200px;
+}
+
 .profile-image-container {
   position: relative;
   height: 250px;
@@ -66,6 +73,7 @@
 .profile-position {
   margin-top: 0;
   font-weight: bold;
+  margin-bottom: 0;
 }
 .profile-linkedin-logo {
   font-size: 1.8em;
