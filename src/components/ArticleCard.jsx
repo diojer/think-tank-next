@@ -14,6 +14,8 @@ export function ArticleCard({ subject, thumbnail, title, type, author, path }) {
             fill
             objectFit="cover"
             className="article-thumbnail"
+            blurDataURL={`${thumbnail}`}
+            placeholder="blur"
           />
         </div>
         {path ? (
