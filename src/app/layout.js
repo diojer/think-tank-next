@@ -33,9 +33,9 @@ const domine = Domine({
 });
 
 export const metadata = {
-  title: "Leeds Think Tank",
-  description:
-    "Leeds Think Tank (LTT) is a student-led and student-run think tank dedicated to undertaking empirically driven research and non-partisan policy that centres on both local and national issues.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
