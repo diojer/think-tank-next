@@ -32,6 +32,9 @@ const domine = Domine({
   variable: "--font-domine",
 });
 
+//Auth
+import { ClerkProvider } from "@clerk/nextjs";
+
 export const metadata = {
   title: "Leeds Think Tank",
   description:
@@ -41,16 +44,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <>
-      <html
-        lang="en"
-        className={`${inter.variable} ${poppinsLight.variable} ${poppinsBold.variable} ${domine.variable}`}
-      >
-        <body>
-          <Navbar />
-          <div className="page-wrapper">{children}</div>
-          <Footer />
-        </body>
-      </html>
+      <ClerkProvider>
+        <html
+          lang="en"
+          className={`${inter.variable} ${poppinsLight.variable} ${poppinsBold.variable} ${domine.variable}`}
+        >
+          <body>
+            <Navbar />
+            <div className="page-wrapper">{children}</div>
+            <Footer />
+          </body>
+        </html>
+      </ClerkProvider>
     </>
   );
 }

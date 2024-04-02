@@ -1,9 +1,8 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import "./Navbar.css";
-// import Cookies from "js-cookie";
-// import axios from "axios";
-// import { UseStateContext } from "../contexts/ContextProvider";
 
 //FontAwesome Imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,10 +10,26 @@ import {
   faBars,
   faUser,
   faChevronDown,
+  faPencil,
 } from "@fortawesome/free-solid-svg-icons";
 
+//Auth
+import { useUser, UserButton } from "@clerk/nextjs";
+
 function Navbar() {
-  const { admin } = true;
+  const { user, isLoaded } = useUser();
+  const [admin, setAdmin] = useState(false);
+
+  if (isLoaded) {
+    if (user) {
+      if (!admin) {
+        if (user.publicMetadata.role == "admin") {
+          setAdmin(true);
+        }
+      }
+    }
+  }
+
   return (
     <nav>
       <div className="wrapper">
@@ -72,11 +87,21 @@ function Navbar() {
             <Link href="/sponsors">Sponsors</Link>
           </li>
           {/* Login Page */}
-          <li>
-            <Link href="/login">
-              <FontAwesomeIcon icon={faUser} />
-            </Link>
-          </li>
+
+          {user ? (
+            <li className="sign-up-button">
+              <div className="user-button">
+                <UserButton />
+              </div>
+            </li>
+          ) : (
+            <li>
+              <Link href="/sign-in">
+                <FontAwesomeIcon icon={faUser} />
+              </Link>
+            </li>
+          )}
+
           {/* Searchbar */}
           <li></li>
           {/* Admin */}

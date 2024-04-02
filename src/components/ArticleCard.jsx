@@ -1,9 +1,9 @@
 import "./ArticleCard.css";
 import Link from "next/link";
 import Image from "next/image";
+
 export function ArticleCard({ subject, thumbnail, title, type, author, path }) {
   // We need to develop a function that searches the database for similar articles and pushes them to a suggestList variable
-
   return (
     <div className="article-card-whole">
       <div className="article-card">
@@ -14,8 +14,6 @@ export function ArticleCard({ subject, thumbnail, title, type, author, path }) {
             fill
             objectFit="cover"
             className="article-thumbnail"
-            blurDataURL={`${thumbnail}`}
-            placeholder="blur"
           />
         </div>
         {path ? (
