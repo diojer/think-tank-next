@@ -43,42 +43,9 @@ const onUpload = (data) => {
   });
 
   formData.append("payload", payload);
-
-  axiosClient
-    .post("/article", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    })
-    .then(({ data }) => {
-      alert("Article uploaded successfully!");
-      navigate(`/articles/${selectedArticle.id}`);
-    })
-    .catch((err) => {
-      console.log(err);
-      //   const response = err.response;
-      //   response.status===422 //422 is a validation error
-      //   if (response && response.status === 422) {
-      //     alert(response.data.errors);
-      //   }
-    });
 };
 
-const UploadImage = (blobInfo, resolve, reject) => {
-  const blob = blobInfo.blob();
-  const image = new FormData();
-  image.append("image", blob);
-  axiosClient
-    .post("/article/image", image, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
-    .then((response) => {
-      resolve(`${process.env.APP_PUBLIC_URL}${response.data.location}`);
-    })
-    .catch((error) => {
-      reject("failed!");
-    });
-};
+const UploadImage = (blobInfo, resolve, reject) => {};
 
 export default function uploadArticle() {
   return (
