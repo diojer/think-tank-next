@@ -20,6 +20,16 @@ function Navbar() {
   const { user, isLoaded } = useUser();
   const [admin, setAdmin] = useState(false);
 
+  if (isLoaded) {
+    if (user) {
+      if (!admin) {
+        if (user.publicMetadata.role == "admin") {
+          setAdmin(true);
+        }
+      }
+    }
+  }
+
   return (
     <nav>
       <div className="wrapper">

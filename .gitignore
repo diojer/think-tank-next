@@ -37,4 +37,5 @@ next-env.d.ts
 
 # environment
 .env
+.env.development
 !next-env.d.ts
