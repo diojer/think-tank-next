@@ -12,9 +12,9 @@ import Head from "next/head";
 import { indexArticles } from "@/lib/articles";
 
 export const metadata = {
-  title: "Leeds Think Tank - Home",
+  title: "Leeds Policy Institute - Home",
   description:
-    "Leeds Think Tank (LTT) is a student-led and student-run think tank dedicated to undertaking empirically driven research and non-partisan policy that centres on both local and national issues.",
+    "Leeds Policy Institute (LPI) is a student-led and student-run think tank dedicated to undertaking empirically driven research and non-partisan policy that centres on both local and national issues.",
 };
 
 export default async function Home() {

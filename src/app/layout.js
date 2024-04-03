@@ -36,9 +36,9 @@ const domine = Domine({
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
-  title: "Leeds Think Tank",
+  title: "Leeds Policy Institute",
   description:
-    "Leeds Think Tank (LTT) is a student-led and student-run think tank dedicated to undertaking empirically driven research and non-partisan policy that centres on both local and national issues.",
+    "Leeds Policy Institute (LPI) is a student-led and student-run think tank dedicated to undertaking empirically driven research and non-partisan policy that centres on both local and national issues.",
 };
 
 export default function RootLayout({ children }) {
