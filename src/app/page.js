@@ -46,14 +46,6 @@ export default async function Home() {
       />
       <div className="home-column-wrapper">
         <div className="home-column">
-          <div className="tagline-wrapper">
-            <p className="tagline-primary">
-              Research for <span className="underline">Everyone</span>
-            </p>
-            <p className="tagline-secondary">
-              Committed to high quality, open-source analysis.
-            </p>
-          </div>
           <div className="image-buttons-first-row">
             <ImageButtons
               text={["Reports", "Articles"]}
