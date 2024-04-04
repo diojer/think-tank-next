@@ -15,9 +15,7 @@ import {
   faFileContract,
   faFileLines,
   faGlobe,
-  faMagnifyingGlassChart,
   faNewspaper,
-  faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 
 //API Calls
@@ -39,16 +37,14 @@ export default async function Home() {
     rewind: true,
     pause: false,
     interval: 4000,
-    type: "fade",
+    type: "loop",
     pauseOnHover: false,
     pauseOnFocus: true,
     slideFocus: true,
     rewindByDrag: true,
-    // cover: true,
-    height: "450px",
     resetProgress: true,
     dragMinThreshold: 10,
-    lazyLoad: "nearby",
+    lazyLoad: "sequential",
   };
   return (
     <>
@@ -57,60 +53,64 @@ export default async function Home() {
         options={carouselOptions}
       />
       <div className="home-column-wrapper">
+        <div className="icon-buttons-background">
+          <div className="home-column">
+            <IconButtons
+              contents={[
+                {
+                  icon: <FontAwesomeIcon icon={faFileContract} />,
+                  title: "Reports",
+                  text: "Latest reports and policies",
+                },
+                {
+                  icon: <FontAwesomeIcon icon={faNewspaper} />,
+                  title: "Articles",
+                  text: "Latest op-eds on a variety of topics",
+                },
+                {
+                  icon: <FontAwesomeIcon icon={faCalendarDays} />,
+                  title: "Events",
+                  text: "Check out our latest events",
+                },
+                {
+                  icon: <FontAwesomeIcon icon={faGlobe} />,
+                  title: "Join Us",
+                  text: "Become a member of LPI",
+                },
+                {
+                  icon: <FontAwesomeIcon icon={faEnvelopesBulk} />,
+                  title: "Contact Us",
+                  text: "Send us an email",
+                },
+                {
+                  icon: <FontAwesomeIcon icon={faFileLines} />,
+                  title: "Press Releases",
+                  text: "Write about our latest reports",
+                },
+              ]}
+              color={"#2C2B3C"}
+              linkProps={[
+                { href: "/reports" },
+                { href: "/articles" },
+                {
+                  href: "https://engage.luu.org.uk/groups/26GTR/leeds-think-tank-society/events",
+                  target: "_blank",
+                },
+                {
+                  href: "https://engage.luu.org.uk/groups/26GTR/leeds-think-tank-society/memberships",
+                  target: "_blank",
+                },
+                {
+                  href: "#contact-us",
+                },
+                {
+                  href: "/media/appearances",
+                },
+              ]}
+            />
+          </div>
+        </div>
         <div className="home-column">
-          <IconButtons
-            contents={[
-              {
-                icon: <FontAwesomeIcon icon={faFileContract} />,
-                title: "Reports",
-                text: "Latest reports and policies",
-              },
-              {
-                icon: <FontAwesomeIcon icon={faNewspaper} />,
-                title: "Articles",
-                text: "Latest op-eds on a variety of topics",
-              },
-              {
-                icon: <FontAwesomeIcon icon={faCalendarDays} />,
-                title: "Events",
-                text: "Check out our latest events",
-              },
-              {
-                icon: <FontAwesomeIcon icon={faGlobe} />,
-                title: "Join Us",
-                text: "Become a member of LPI",
-              },
-              {
-                icon: <FontAwesomeIcon icon={faEnvelopesBulk} />,
-                title: "Contact Us",
-                text: "Send us an email",
-              },
-              {
-                icon: <FontAwesomeIcon icon={faFileLines} />,
-                title: "Press Releases",
-                text: "Write about our latest reports",
-              },
-            ]}
-            colors={["", "", "", "", "", ""]}
-            linkProps={[
-              { href: "/reports" },
-              { href: "/articles" },
-              {
-                href: "https://engage.luu.org.uk/groups/26GTR/leeds-think-tank-society/events",
-                target: "_blank",
-              },
-              {
-                href: "https://engage.luu.org.uk/groups/26GTR/leeds-think-tank-society/memberships",
-                targets: "_blank",
-              },
-              {
-                href: "#contact-us",
-              },
-              {
-                href: "/media/appearances",
-              },
-            ]}
-          />
           <div className="article-cards-wrapper">
             {articles.slice(0, numOfArticles).map((value, key) => {
               return (

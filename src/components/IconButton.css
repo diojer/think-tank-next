@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 8px;
 }
 
 .icon-button-link {
@@ -18,11 +19,10 @@
   justify-content: left;
   padding: 16px;
   box-sizing: border-box;
-  background-color: #007846;
 }
 
 .icon-button:hover {
-  background-color: #006c3f;
+  background-color: black;
 }
 
 .icon-button-title {

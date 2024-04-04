@@ -226,10 +226,10 @@ nav .wrapper {
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--primary);
+    background: lightgrey;
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--secondary);
+    background: grey;
   }
   #menu-btn:checked ~ .nav-links {
     left: 0%;
@@ -323,9 +323,14 @@ nav .wrapper {
     font-size: 19px;
   }
 }
+@media screen and (max-width: 800px) {
+  .logo-text {
+    font-size: 24px;
+  }
+}
 @media screen and (max-width: 400px) {
   .logo-text {
-    font-size: 21px;
+    font-size: 20px;
   }
 }
 

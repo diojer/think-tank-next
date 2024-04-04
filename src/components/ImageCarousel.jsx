@@ -16,7 +16,6 @@ export const ImageCarousel = ({ articles, options }) => {
             <SplideSlide key={key}>
               <div
                 style={{
-                  height: "450px",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center center",
                   backgroundSize: "cover",

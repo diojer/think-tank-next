@@ -12,7 +12,7 @@ export default function IconButton({
 }) {
   return (
     <Link {...linkProps} className="icon-button-link">
-      <div className="icon-button">
+      <div className="icon-button" style={{ backgroundColor: `${color}` }}>
         <div className="icon-button-icon-wrapper">
           <p className="icon-button-icon-text">{icon}</p>
         </div>
