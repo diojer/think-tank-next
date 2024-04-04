@@ -7,7 +7,6 @@ import { headers } from "next/headers";
 
 //API calls
 import { getById, index } from "@/lib/routes";
-import { getArticle } from "@/lib/articles";
 
 export async function generateStaticParams() {
   const articles = await index("/articles");
