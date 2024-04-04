@@ -84,7 +84,7 @@ function Footer() {
             </NewTabLink>
           </div>
           <div className="footer-link-items">
-            <h2>Contact Us</h2>
+            <h2 id="contact-us">Contact Us</h2>
             <NewTabLink link="https://goo.gl/maps/TZcVXb4Z6xgFDsNK6">
               Lifton Place, Leeds, LS2 9JZ
             </NewTabLink>

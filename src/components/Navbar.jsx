@@ -107,7 +107,7 @@ function Navbar() {
           {/* Admin */}
           {admin && (
             <li>
-              <Link href="/portal/upload">
+              <Link href="/portal">
                 <FontAwesomeIcon icon={faPencil} />
               </Link>
             </li>

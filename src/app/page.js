@@ -1,15 +1,27 @@
+//Imports
 import React from "react";
 import "./Home.css";
 import { ImageCarousel } from "@/components/ImageCarousel";
-import { Button } from "@/components/Button";
 import { ImageButtons } from "@/components/ImageButtons";
+import IconButton from "@/components/IconButton";
+import IconButtons from "@/components/IconButtons";
 import { ArticleCard } from "@/components/ArticleCard";
-// import { EmailForm } from "@/components/EmailForm";
-import { TitleBox } from "@/components/TitleBox";
-import Head from "next/head";
+
+//FontAwesome Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCalendarDays,
+  faEnvelopesBulk,
+  faFileContract,
+  faFileLines,
+  faGlobe,
+  faMagnifyingGlassChart,
+  faNewspaper,
+  faVideo,
+} from "@fortawesome/free-solid-svg-icons";
 
 //API Calls
-import { indexArticles } from "@/lib/articles";
+import { index } from "@/lib/routes";
 
 export const metadata = {
   title: "Leeds Policy Institute - Home",
@@ -18,7 +30,7 @@ export const metadata = {
 };
 
 export default async function Home() {
-  const articles = await indexArticles();
+  const articles = await index("/articles");
   const numOfArticles = 6;
   const carouselOptions = {
     //Options, for more information see https://splidejs.com/guides/options/
@@ -46,48 +58,73 @@ export default async function Home() {
       />
       <div className="home-column-wrapper">
         <div className="home-column">
-          <div className="image-buttons-first-row">
-            <ImageButtons
-              text={["Reports", "Articles"]}
-              images={[`/images/img-6.jpg`, `/images/img-22.jpeg`]}
-              shape="imgb--rect"
-              color="#4d5c4e"
-              paths={["/reports", "/articles"]}
-              newTabs={[false, false]}
-            />
-          </div>
-          <div className="image-buttons-second-row">
-            <ImageButtons
-              text={["Latest Events", "Join Us", "Contact Us"]}
-              images={[
-                `/images/img-6.jpg`,
-                `/images/img-21.jpeg`,
-                `/images/img-5.jpg`,
-              ]}
-              shape="imgb--thin"
-              color="#706731"
-              paths={[
-                "https://engage.luu.org.uk/groups/26GTR/leeds-think-tank-society/events",
-                "https://engage.luu.org.uk/groups/26GTR/leeds-think-tank-society/memberships",
-                "/aboutus",
-              ]}
-              newTabs={[true, true, false]}
-            />
-            <div className="article-cards-wrapper">
-              {articles.slice(0, numOfArticles).map((value, key) => {
-                return (
-                  <ArticleCard
-                    key={key}
-                    subject={value.subject}
-                    thumbnail={`${process.env.APP_PUBLIC_URL}${value.cardImage}`}
-                    title={value.title}
-                    type="Article"
-                    author={value.author}
-                    path={`articles/${value.id}`}
-                  />
-                );
-              })}
-            </div>
+          <IconButtons
+            contents={[
+              {
+                icon: <FontAwesomeIcon icon={faFileContract} />,
+                title: "Reports",
+                text: "Latest reports and policies",
+              },
+              {
+                icon: <FontAwesomeIcon icon={faNewspaper} />,
+                title: "Articles",
+                text: "Latest op-eds on a variety of topics",
+              },
+              {
+                icon: <FontAwesomeIcon icon={faCalendarDays} />,
+                title: "Events",
+                text: "Check out our latest events",
+              },
+              {
+                icon: <FontAwesomeIcon icon={faGlobe} />,
+                title: "Join Us",
+                text: "Become a member of LPI",
+              },
+              {
+                icon: <FontAwesomeIcon icon={faEnvelopesBulk} />,
+                title: "Contact Us",
+                text: "Send us an email",
+              },
+              {
+                icon: <FontAwesomeIcon icon={faFileLines} />,
+                title: "Press Releases",
+                text: "Write about our latest reports",
+              },
+            ]}
+            colors={["", "", "", "", "", ""]}
+            linkProps={[
+              { href: "/reports" },
+              { href: "/articles" },
+              {
+                href: "https://engage.luu.org.uk/groups/26GTR/leeds-think-tank-society/events",
+                target: "_blank",
+              },
+              {
+                href: "https://engage.luu.org.uk/groups/26GTR/leeds-think-tank-society/memberships",
+                targets: "_blank",
+              },
+              {
+                href: "#contact-us",
+              },
+              {
+                href: "/media/appearances",
+              },
+            ]}
+          />
+          <div className="article-cards-wrapper">
+            {articles.slice(0, numOfArticles).map((value, key) => {
+              return (
+                <ArticleCard
+                  key={key}
+                  subject={value.subject}
+                  thumbnail={`${process.env.APP_PUBLIC_URL}${value.cardImage}`}
+                  title={value.title}
+                  type="Article"
+                  author={value.author}
+                  path={`articles/${value.id}`}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

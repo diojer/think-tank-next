@@ -5,10 +5,10 @@ import { TitleBox } from "@/components/TitleBox";
 import "./Articles.css";
 
 //API calls
-import { indexArticles } from "@/lib/articles";
+import { index } from "@/lib/routes";
 
 export default async function Articles() {
-  const articles = await indexArticles();
+  const articles = await index("/articles");
   return (
     <>
       <>

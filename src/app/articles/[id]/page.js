@@ -6,10 +6,11 @@ import ShareBar from "@/components/ShareBar";
 import { headers } from "next/headers";
 
 //API calls
-import { getArticle, indexArticles } from "@/lib/articles";
+import { getById, index } from "@/lib/routes";
+import { getArticle } from "@/lib/articles";
 
 export async function generateStaticParams() {
-  const articles = await indexArticles();
+  const articles = await index("/articles");
   return articles.map((article) => ({
     id: article.id.toString(),
   }));
@@ -18,7 +19,7 @@ export async function generateStaticParams() {
 export default async function ShowArticle({ params }) {
   // Get article id
   const { id } = params;
-  const article = await getArticle(id);
+  const article = await getById("/articles", id);
 
   // window.location.href alternative (can't do that in server components)
   const heads = headers();

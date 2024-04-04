@@ -1,0 +1,46 @@
+.icon-buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.icon-button-link {
+  text-decoration: none;
+  margin: 16px;
+}
+
+.icon-button {
+  height: 220px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 16px;
+  box-sizing: border-box;
+  background-color: #007846;
+}
+
+.icon-button:hover {
+  background-color: #006c3f;
+}
+
+.icon-button-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.icon-button-icon-text {
+  font-size: 3.5em;
+  color: white;
+}
+
+.icon-button-text-wrapper {
+  color: white;
+}
+
+.icon-button p {
+  font-family: var(--font-inter);
+  margin: 4px;
+  margin-top: 8px;
+}
