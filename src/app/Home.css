@@ -104,6 +104,9 @@
   .tagline-secondary {
     font-size: 1.4em;
   }
+  .home-column {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 700px) {

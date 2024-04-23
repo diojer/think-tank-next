@@ -6,14 +6,10 @@ const nextConfig = {
     APP_API_URL: process.env.APP_API_URL,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-        port: "",
-        pathname: "**",
-      },
-    ],
+    domains: ["localhost"],
+  },
+  experimental: {
+    serverComponentsExternalPackages: ["sequelize"],
   },
 };
 

@@ -28,7 +28,7 @@ export const ImageCarousel = ({ articles, options }) => {
                   <p className="carousel-article-author">{`By ${value.author}`}</p>
                   <div className="button-wrapper">
                     <Button
-                      path={`articles/${value.id}`}
+                      path={`articles/${value.slug}`}
                       buttonSize="btn--medium"
                       buttonStyle="btn--primary"
                     >

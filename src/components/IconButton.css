@@ -8,12 +8,12 @@
 
 .icon-button-link {
   text-decoration: none;
-  margin: 16px;
+  margin: 12px;
 }
 
 .icon-button {
-  height: 220px;
-  width: 220px;
+  height: 250px;
+  width: 270px;
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -43,4 +43,24 @@
   font-family: var(--font-inter);
   margin: 4px;
   margin-top: 8px;
+}
+
+@media screen and (max-width: 960px) {
+  .icon-button {
+    width: 90vw;
+  }
+
+  .icon-buttons-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .icon-button-title {
+    font-size: 2em;
+  }
+  .icon-button-text {
+    font-size: 1.5em;
+  }
+  .icon-button-icon-text {
+    font-size: 4em;
+  }
 }

@@ -1,10 +1,13 @@
 //code to get current session token
-const token = "";
+import { cookies } from "next/headers";
 
-export async function fetchWithAuth(path) {
-  const response = await fetch(path, {
+export async function fetchWithAuth(request) {
+  const token = cookies().get("__session");
+  const response = await fetch(request.path, {
+    ...request.init,
     headers: {
-      Authorization: `Bearer ${token}`,
+      authorization: `${token}`,
     },
   });
+  return response;
 }

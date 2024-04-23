@@ -4,17 +4,19 @@ import { Button } from "@/components/Button";
 // import "./ViewArticles.css";
 import "../View.css";
 import { Link } from "next/link";
-import { index } from "@/lib/routes";
+import { index, remove } from "@/lib/routes";
+import { revalidateTag } from "next/cache";
 
 async function ViewArticles() {
-  const articles = await index("/articles");
+  revalidateTag("/posts/article");
+  const articles = await index("/posts/article");
   //sorting function
 
   function articleDelete(article) {
     if (!window.confirm("Are you sure you want to delete this article?")) {
       return;
     } else {
-      //delete article
+      remove(`posts/article/`, article.id);
     }
   }
 
@@ -43,7 +45,9 @@ async function ViewArticles() {
                   key={article.id}
                 >
                   <td className="default-row-id">{article.id}</td>
-                  <td>{article.title}</td>
+                  <td>
+                    <a href={`/articles/${article.slug}`}>{article.title}</a>
+                  </td>
                   <td>{article.author}</td>
                   <td>{article.subject}</td>
                   <td>
@@ -62,7 +66,7 @@ async function ViewArticles() {
                       Link
                     </a>
                   </td>
-                  <td>{article.created_at}</td>
+                  <td>{article.createdAt}</td>
                   <td>
                     <div className="default-buttons-container">
                       <Button path={`/portal/edit/article/${article.id}`}>

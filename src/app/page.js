@@ -3,9 +3,9 @@ import React from "react";
 import "./Home.css";
 import { ImageCarousel } from "@/components/ImageCarousel";
 import { ImageButtons } from "@/components/ImageButtons";
-import IconButton from "@/components/IconButton";
 import IconButtons from "@/components/IconButtons";
 import { ArticleCard } from "@/components/ArticleCard";
+import { revalidateTag } from "next/cache";
 
 //FontAwesome Imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,7 +28,8 @@ export const metadata = {
 };
 
 export default async function Home() {
-  const articles = await index("/articles");
+  revalidateTag("/posts/article");
+  const articles = await index("/posts/article");
   const numOfArticles = 6;
   const carouselOptions = {
     //Options, for more information see https://splidejs.com/guides/options/
@@ -37,14 +38,14 @@ export default async function Home() {
     rewind: true,
     pause: false,
     interval: 4000,
-    type: "loop",
+    type: "fade",
     pauseOnHover: false,
     pauseOnFocus: true,
     slideFocus: true,
     rewindByDrag: true,
     resetProgress: true,
     dragMinThreshold: 10,
-    lazyLoad: "sequential",
+    lazyLoad: "nearby",
   };
   return (
     <>
@@ -104,7 +105,7 @@ export default async function Home() {
                   href: "#contact-us",
                 },
                 {
-                  href: "/media/appearances",
+                  href: "/media/press-releases",
                 },
               ]}
             />

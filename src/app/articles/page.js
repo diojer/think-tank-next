@@ -2,13 +2,15 @@ import React from "react";
 import Head from "next/head";
 import { ArticleCard } from "@/components/ArticleCard";
 import { TitleBox } from "@/components/TitleBox";
+import { revalidateTag } from "next/cache";
 import "./Articles.css";
 
 //API calls
 import { index } from "@/lib/routes";
 
 export default async function Articles() {
-  const articles = await index("/articles");
+  revalidateTag("/posts/article");
+  const articles = await index("/posts/article");
   return (
     <>
       <>
@@ -30,7 +32,7 @@ export default async function Articles() {
                   title={article.title}
                   type="Article"
                   author={article.author}
-                  path={`articles/${article.id}`}
+                  path={`articles/${article.slug}`}
                 />
               ))}
             </div>

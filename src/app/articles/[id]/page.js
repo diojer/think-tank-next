@@ -7,25 +7,28 @@ import { headers } from "next/headers";
 
 //API calls
 import { getById, index } from "@/lib/routes";
+import { revalidateTag } from "next/cache";
 
 export async function generateStaticParams() {
-  const articles = await index("/articles");
+  revalidateTag("/posts/article");
+  const articles = await index("/posts/article");
   return articles.map((article) => ({
-    id: article.id.toString(),
+    id: article.slug.toString(),
   }));
 }
 
 export default async function ShowArticle({ params }) {
   // Get article id
   const { id } = params;
-  const article = await getById("/articles", id);
+  revalidateTag("/posts/article");
+  const article = await getById("/posts/articles", id);
 
   // window.location.href alternative (can't do that in server components)
   const heads = headers();
   const shareUrl = heads.get("next-url");
 
   const getTime = () => {
-    const articleCreatedAt = new Date(article.created_at);
+    const articleCreatedAt = new Date(article.createdAt);
     const timeNow = new Date();
     // Calculate time difference in seconds
     let timeDifference = Math.floor(
@@ -68,7 +71,7 @@ export default async function ShowArticle({ params }) {
               </p>
               <ShareBar shareUrl={shareUrl} article={article} />
               <div className="selected-article-content">
-                {article && parse(article.content)}
+                {article && parse(String(article.content))}
               </div>
             </div>
           </div>
