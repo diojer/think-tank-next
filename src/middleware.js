@@ -12,7 +12,7 @@ export default authMiddleware({
 export async function middleware(request) {
   const spki = process.env.NEXT_PUBLIC_CLERK_JWT;
   const protections = [
-    // { route: "/posts", methods: ["POST", "PUT", "DELETE"] },
+    { route: "/posts", methods: ["POST", "PUT", "DELETE"] },
     { route: "/sponsors", methods: ["POST", "PUT", "DELETE"] },
     { route: "/jobs", methods: ["POST", "PUT", "DELETE"] },
     { route: "/migrate", methods: ["GET", "POST", "PUT", "DELETE"] },
