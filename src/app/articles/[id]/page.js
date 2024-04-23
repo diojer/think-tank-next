@@ -4,14 +4,16 @@ import { TitleBox } from "../../../components/TitleBox";
 import parse, { attributesToProps } from "html-react-parser";
 import ShareBar from "@/components/ShareBar";
 import { headers } from "next/headers";
+import Posts from "@/app/models/Posts";
 
 //API calls
 import { getById, index } from "@/lib/routes";
 import { revalidateTag } from "next/cache";
 
 export async function generateStaticParams() {
-  revalidateTag("/posts/article");
-  const articles = await index("/posts/article");
+  // revalidateTag("/posts/article");
+  // const articles = await index("/posts/article")
+  const articles = await Posts.findAll({ where: { type: "article" } });
   return articles.map((article) => ({
     id: article.slug.toString(),
   }));
