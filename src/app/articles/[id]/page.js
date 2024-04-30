@@ -11,13 +11,13 @@ import { getById, index } from "@/lib/routes";
 import { revalidateTag } from "next/cache";
 
 export async function generateStaticParams() {
-  // revalidateTag("/posts/article");
-  // const articles = await index("/posts/article")
   const articles = await Posts.findAll({ where: { type: "article" } });
   return articles.map((article) => ({
     id: article.slug.toString(),
   }));
 }
+
+export const dynamicParams = true
 
 export default async function ShowArticle({ params }) {
   // Get article id

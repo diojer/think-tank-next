@@ -17,6 +17,8 @@ export async function generateStaticParams() {
     }));
 }
 
+export const dynamicParams = true
+
 export default async function ShowArticle({ params }) {
     // Get pressRelease id
     const { id } = params;
