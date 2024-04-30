@@ -23,7 +23,6 @@ export default function MediaCard({ subject, thumbnail, title, type, author, pat
         ) : (
           <p className="article-card-title">{title}</p>
         )}
-        <p className="article-author">{author}</p>
         {/* <p className="article-type">{type}</p> */}
       </div>
       <div className="description-wrapper">
