@@ -35,6 +35,9 @@ const domine = Domine({
 //Auth
 import { ClerkProvider } from "@clerk/nextjs";
 
+//Analytics
+import { Analytics } from "@vercel/analytics/react"
+
 export const metadata = {
   title: "Leeds Policy Institute",
   description:
@@ -45,16 +48,18 @@ export default function RootLayout({ children }) {
   return (
     <>
       <ClerkProvider>
-        <html
-          lang="en"
-          className={`${inter.variable} ${poppinsLight.variable} ${poppinsBold.variable} ${domine.variable}`}
-        >
-          <body>
-            <Navbar />
-            <div className="page-wrapper">{children}</div>
-            <Footer />
-          </body>
-        </html>
+        <Analytics>
+          <html
+            lang="en"
+            className={`${inter.variable} ${poppinsLight.variable} ${poppinsBold.variable} ${domine.variable}`}
+          >
+            <body>
+              <Navbar />
+              <div className="page-wrapper">{children}</div>
+              <Footer />
+            </body>
+          </html>
+        </Analytics>
       </ClerkProvider>
     </>
   );
