@@ -17,6 +17,12 @@
     animation: fadeAndRise 0.3s ease-in-out;
 }
 
+.selected-release-subject {
+    font-size: 1.4em;
+    color: var(--primary);
+    font-weight: bold;
+}
+
 .selected-article-byline {
     font-size: 1.3em;
     font-weight: 300;
