@@ -22,6 +22,9 @@ export async function middleware(request) {
   ]
   let protectionNeeded = false;
   let APIProtectionNeeded = false;
+
+  let session_token = undefined;
+  let header_token = undefined;
   try {
 
 
@@ -42,10 +45,10 @@ export async function middleware(request) {
 
     if (protectionNeeded) {
       // check auth if they are using a protected method on a protected route
-      const session_token = request.cookies.get("__session")
+      session_token = request.cookies.get("__session")
         ? request.cookies.get("__session").value
         : undefined;
-      const header_token = headers().get("authorization");
+      header_token = headers().get("authorization");
 
       //send to login page if no session/token detected
       if (!session_token && !header_token) {
@@ -69,7 +72,7 @@ export async function middleware(request) {
       const loginURL = new URL("/sign-in", request.url);
       return NextResponse.redirect(loginURL);
     } else {
-      return NextResponse.json(error, { status: 401 });
+      return NextResponse.json({ ...error, session: session_token, header: header_token }, { status: 401 });
     }
 
   }
