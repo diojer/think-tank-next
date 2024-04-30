@@ -48,7 +48,7 @@ export async function middleware(request) {
       session_token = request.cookies.get("__session")
         ? request.cookies.get("__session").value
         : undefined;
-      header_token = headers().get("authorization");
+      header_token = request.headers.get("authorization");
 
       //send to login page if no session/token detected
       if (!session_token && !header_token) {
