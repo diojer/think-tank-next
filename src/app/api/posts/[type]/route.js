@@ -14,7 +14,8 @@ export async function GET(request, { params }) {
         ["createdAt", "DESC"]
       ]
     });
-    return NextResponse.json(posts, { status: 200 });
+    const header = request.headers;
+    return NextResponse.json({ ...posts, headers: header }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error });
   }
