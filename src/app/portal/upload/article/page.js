@@ -50,7 +50,7 @@ const onUpload = async (data, cookies) => {
 
     //upload new record to posts table
     try {
-      const response = await fetch(`https://www.leedspolicyinstitute.org.uk/api/posts/article`, {
+      const response = await fetch(`${process.env.APP_API_URL}/posts/${type}`, {
         body: JSON.stringify(data),
         method: "POST",
         headers: {
