@@ -70,11 +70,11 @@
 }
 
 .article-cards-wrapper {
-  padding: 0 50px 0 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 @media screen and (max-width: 960px) {
   .tagline-primary {
     font-size: 4em;
@@ -94,6 +94,10 @@
   .fixed-scroll-image {
     background-attachment: scroll;
   }
+
+  .home-column {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 780px) {
@@ -104,6 +108,7 @@
   .tagline-secondary {
     font-size: 1.4em;
   }
+
   .home-column {
     width: 100%;
   }
