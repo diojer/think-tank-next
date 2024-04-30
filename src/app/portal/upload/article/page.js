@@ -50,7 +50,7 @@ const onUpload = async (data, cookies) => {
 
     //upload new record to posts table
     try {
-      const response = await fetch(`${process.env.APP_API_URL}/posts/${type}`, {
+      const response = await fetch(`https://www.leedspolicyinstitute.org.uk/api/posts/article`, {
         body: JSON.stringify(data),
         method: "POST",
         headers: {
@@ -58,12 +58,12 @@ const onUpload = async (data, cookies) => {
         }
       })
       if (!response.ok) {
-        throw ("Images uploaded successfully, problem record to table.");
+        throw ("Images uploaded successfully, problem recording to table.");
       } else {
         alert("Article successfully created.");
       }
     } catch (error) {
-      throw ("Images uploaded successfully, problem record to table.");
+      throw ("Images uploaded successfully, problem recording to table.");
     }
 
   } catch (error) {
