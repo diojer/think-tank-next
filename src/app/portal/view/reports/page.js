@@ -27,7 +27,7 @@ async function ViewEmails() {
         <>
             <div className="report-view-wrapper upload-subwrapper">
                 <p className="report-view-heading upload-subheader">
-                    View/Edit Mailing List
+                    View/Edit Reports
                 </p>
                 <table className="default-table">
                     <tbody>
