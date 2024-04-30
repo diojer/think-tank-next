@@ -34,7 +34,7 @@ const ShareBar = ({ shareUrl, article }) => {
         <FacebookShareButton
           url={shareUrl}
           title={article.title}
-          appId="1015935046327073"
+          appid="1015935046327073"
           share-btns
           resetButtonStyle={false}
         >
@@ -43,7 +43,7 @@ const ShareBar = ({ shareUrl, article }) => {
         <FacebookMessengerShareButton
           url={shareUrl}
           quote={article.title}
-          appId="1015935046327073"
+          appid="1015935046327073"
           share-btns
           resetButtonStyle={false}
         >

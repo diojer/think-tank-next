@@ -1,8 +1,21 @@
 import React from "react";
 import "./appearances.css";
+import "@/app/articles/Articles.css";
 import { TitleBox } from "@/components/TitleBox";
+import MediaCard from "@/components/MediaCard";
+import { revalidateTag } from "next/cache";
 
-function MediaAppearances() {
+//API calls
+import { index } from "@/lib/routes";
+
+
+async function MediaAppearances() {
+  revalidateTag("/posts/media-appearance");
+  const mediaApps = await index("/posts/media-appearance");
+  let filled = false;
+  if (mediaApps.length > 0) {
+    filled = true
+  }
   return (
     <>
       <TitleBox
@@ -13,7 +26,24 @@ function MediaAppearances() {
       >
         Media Appearances<span className="hilite">.</span>
       </TitleBox>
-      <div className="mediaAp-wrapper WIP-wrapper">
+      {filled ? <div className="articles-aligner">
+        <div className="articles-column">
+          <div className="articles-wrapper">
+            {mediaApps.map((mediaApp, key) => (
+              <MediaCard
+                key={key}
+                subject={mediaApp.subject}
+                thumbnail={`${process.env.APP_PUBLIC_URL}${mediaApp.cardImage}`}
+                title={mediaApp.title}
+                type="Article"
+                author={mediaApp.author}
+                path={`appearances/${mediaApp.slug}`}
+                description={mediaApp.byline}
+              />
+            ))}
+          </div>
+        </div>
+      </div> : <div className="mediaAp-wrapper WIP-wrapper">
         <div className="WIP-message">
           <p className="WIP-message-title">
             We have no media appearances at the moment.
@@ -24,7 +54,7 @@ function MediaAppearances() {
             page.
           </p>
         </div>
-      </div>
+      </div>}
     </>
   );
 }

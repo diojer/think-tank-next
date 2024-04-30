@@ -80,7 +80,7 @@ function UploadMediaAppearance() {
                 <Form className="upload-article-form">
                     <label>Title:</label>
                     <Field name="title" />
-                    <label>Author:</label>
+                    <label>Author(s):</label>
                     <Field name="author" />
                     <label>
                         Policy Area (e.g., Education, Energy and Environment, etc.):
