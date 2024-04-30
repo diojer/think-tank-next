@@ -20,8 +20,10 @@ export async function middleware(request) {
   const protectedRoutes = [
     "/portal"
   ]
+  let protectionNeeded = false;
+  let APIProtectionNeeded = false;
   try {
-    let protectionNeeded = false;
+
 
     //cycle through routes and methods to see if protection is needed
 
@@ -34,6 +36,7 @@ export async function middleware(request) {
     protectedAPIRoutes.map((protection) => {
       if (request.url.includes(protection.route)) {
         protectionNeeded = protection.methods.includes(request.method);
+        APIProtectionNeeded = protectionNeeded;
       }
     });
 
@@ -62,8 +65,13 @@ export async function middleware(request) {
       return NextResponse.next();
     }
   } catch (error) {
-    const loginURL = new URL("/sign-in", request.url);
-    return NextResponse.redirect(loginURL);
+    if (!APIProtectionNeeded) {
+      const loginURL = new URL("/sign-in", request.url);
+      return NextResponse.redirect(loginURL);
+    } else {
+      return NextResponse.json(error, { status: 401 });
+    }
+
   }
 }
 

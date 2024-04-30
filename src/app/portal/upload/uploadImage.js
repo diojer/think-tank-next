@@ -2,7 +2,7 @@ export default async function uploadImage(image, type, auth) {
     let formData = new FormData();
     formData.append("image", image);
     formData.append("type", type);
-    const path = `https://api.leedsthinktank.org.uk/api/images`;
+    const path = `${process.env.APP_IMAGE_HOST}/api/images`;
     try {
         const response = await fetch(path, {
             body: formData,

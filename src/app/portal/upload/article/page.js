@@ -49,18 +49,23 @@ const onUpload = async (data, cookies) => {
     data.cardImage = cardImagePath;
 
     //upload new record to posts table
-    const response = await fetch(`${process.env.APP_API_URL}/posts/${type}`, {
-      body: JSON.stringify(data),
-      method: "POST",
-      headers: {
-        authorization: `${session_token}`
+    try {
+      const response = await fetch(`${process.env.APP_API_URL}/posts/${type}`, {
+        body: JSON.stringify(data),
+        method: "POST",
+        headers: {
+          authorization: `${session_token}`
+        }
+      })
+      if (!response.ok) {
+        throw ("Images uploaded successfully, problem record to table.");
+      } else {
+        alert("Article successfully created.");
       }
-    })
-    if (!response.ok) {
+    } catch (error) {
       throw ("Images uploaded successfully, problem record to table.");
-    } else {
-      alert("Article successfully created.");
     }
+
   } catch (error) {
     console.log(error);
     alert(`Error: ${error}`)
