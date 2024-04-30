@@ -20,7 +20,12 @@ const nextConfig = {
     APP_IMAGE_HOST: process.env.APP_IMAGE_HOST,
   },
   images: {
-    domains: ["localhost", "leedspolicyinstitute.org.uk", "leedsthinktank.org.uk"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*"
+      }
+    ]
   },
   experimental: {
     serverComponentsExternalPackages: ["sequelize"],
