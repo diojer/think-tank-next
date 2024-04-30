@@ -19,7 +19,7 @@ function Reports() {
           <p className="WIP-message-title">
             Sorry, no reports have been published yet.
           </p>
-          <p className="WIP-message-text">Please check again in April, 2024!</p>
+          <p className="WIP-message-text">Coming Friday the 3rd of May, 2024!</p>
         </div>
       </div>
     </>
