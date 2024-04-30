@@ -22,7 +22,7 @@ export async function postWithAuth(route, data, contentType) {
       method: "POST",
       body: data,
       headers: {
-        "Content-Type": contentType,
+        "Content-Type": contentType ? contentType : "application/json",
       },
     },
   });

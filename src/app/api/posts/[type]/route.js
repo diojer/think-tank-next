@@ -10,6 +10,9 @@ export async function GET(request, { params }) {
       where: {
         type: params.type,
       },
+      order: [
+        ["createdAt", "DESC"]
+      ]
     });
     return NextResponse.json(posts, { status: 200 });
   } catch (error) {
@@ -19,18 +22,11 @@ export async function GET(request, { params }) {
 
 export async function POST(request, { params }) {
   try {
-    //validates image size, type, and post columns
-    const [post, cardImage, bannerImage] = await validatePostsRequest(request);
+    //validates post columns
+    const post = await validatePostsRequest(request);
 
+    //type should be article, media-appearance or press-release
     post.type = params.type;
-
-    if (!cardImage || !bannerImage) {
-      throw { message: "Two images required." };
-    }
-
-    const path = `posts/${post.type}/`;
-    post.bannerImage = await uploadImage(bannerImage, path);
-    post.cardImage = await uploadImage(cardImage, path);
 
     //create readable slug
     post.slug = createSlug(post.title, 30);
@@ -41,8 +37,9 @@ export async function POST(request, { params }) {
       { status: 200 }
     );
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ error: error }, { status: 500 });
   }
 }
 
-export async function PUT(request, { params }) {}
+export async function PUT(request, { params }) { }

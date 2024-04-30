@@ -24,6 +24,10 @@ const Reports = sequelize.define("reports", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  abstract: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   bannerImage: {
     type: DataTypes.STRING,
     allowNull: false,

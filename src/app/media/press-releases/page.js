@@ -16,12 +16,13 @@ function PressRelease() {
       <div className="WIP-wrapper">
         <div className="WIP-message">
           <p className="WIP-message-title">
-            We have no press release information at the moment.
+            We have no public press release information at the moment.
           </p>
           <p className="WIP-message-text">
-            Please check again later! If you are interested in writing about us,
-            please see our contact details at the bottom of the page and let us
-            know.
+            Please check again on Friday the 9th of May.
+          </p>
+          <p className="WIP-message-text">
+            If you have received an advanced press release from us, access it through the link in your <b>email</b>.
           </p>
         </div>
       </div>

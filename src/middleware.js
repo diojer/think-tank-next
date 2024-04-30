@@ -11,17 +11,27 @@ export default authMiddleware({
 
 export async function middleware(request) {
   const spki = process.env.NEXT_PUBLIC_CLERK_JWT;
-  const protections = [
+  const protectedAPIRoutes = [
     { route: "/posts", methods: ["POST", "PUT", "DELETE"] },
     { route: "/sponsors", methods: ["POST", "PUT", "DELETE"] },
     { route: "/jobs", methods: ["POST", "PUT", "DELETE"] },
     { route: "/migrate", methods: ["GET", "POST", "PUT", "DELETE"] },
   ];
+  const protectedRoutes = [
+    "/portal"
+  ]
   try {
     let protectionNeeded = false;
 
     //cycle through routes and methods to see if protection is needed
-    protections.map((protection, key, arr) => {
+
+    //For any HTTP request
+    protectedRoutes.map((route) => {
+      protectionNeeded = request.url.includes(route);
+    })
+
+    //For API routes
+    protectedAPIRoutes.map((protection) => {
       if (request.url.includes(protection.route)) {
         protectionNeeded = protection.methods.includes(request.method);
       }
@@ -49,12 +59,11 @@ export async function middleware(request) {
       if (payload.metadata.role !== "admin") {
         throw { message: "Not authorised" };
       }
+      return NextResponse.next();
     }
   } catch (error) {
-    return NextResponse.json(
-      { error: error.message, spki: spki },
-      { status: 401 }
-    );
+    const loginURL = new URL("/sign-in", request.url);
+    return NextResponse.redirect(loginURL);
   }
 }
 

@@ -10,12 +10,8 @@ export const sponsorSchema = yup.object().shape({
 
 export default async function validateSponsorRequest(req) {
   try {
-    const formData = await req.formData();
-    const payload = JSON.parse(formData.get("payload"));
-    const image = formData.get("image");
-    await sponsorSchema.validate(payload);
-    validateImages([image]);
-    return [payload, image];
+    await sponsorSchema.validate(req);
+    return req;
   } catch (error) {
     throw { message: error.message };
   }

@@ -14,15 +14,7 @@ export async function GET(request, { parameters }) {
 
 export async function POST(request, { parameters }) {
   try {
-    const [sponsor, image] = await validateSponsorRequest(request);
-
-    if (!image) {
-      throw { message: "Image required." };
-    }
-
-    const path = `sponsors/`;
-    sponsor.image = await uploadImage(image, path);
-
+    const sponsor = await validateSponsorRequest(request);
     await Sponsors.create(sponsor);
     return NextResponse.json({ message: "Sponsor added." }, { status: 200 });
   } catch (error) {
