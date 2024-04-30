@@ -14,7 +14,7 @@ export default async function uploadImage(image, type, auth) {
         const data = await response.json();
         return data.filepath;
     } catch (error) {
-        throw ("Problem uploading image")
+        throw (`Problem uploading image: ${error}`)
     }
 };
 

@@ -62,6 +62,7 @@ const onUpload = async (data, cookies) => {
       alert("Article successfully created.");
     }
   } catch (error) {
+    console.log(error);
     alert(`Error: ${error}`)
   }
 };
