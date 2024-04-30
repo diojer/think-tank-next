@@ -2,7 +2,7 @@ import React from "react";
 
 import { TitleBox } from "@/components/TitleBox";
 import { SponsorCard } from "@/components/SponsorCard";
-import "./Sponsors.css";
+import "./sponsors.css";
 
 function Sponsors() {
   return (
