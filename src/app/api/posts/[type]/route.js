@@ -15,7 +15,7 @@ export async function GET(request, { params }) {
       ]
     });
     const header = request.headers;
-    return NextResponse.json({ ...posts, headers: header.get("x_authorization") }, { status: 200 });
+    return NextResponse.json(posts, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error });
   }

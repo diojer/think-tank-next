@@ -72,7 +72,7 @@ export async function middleware(request) {
       const loginURL = new URL("/sign-in", request.url);
       return NextResponse.redirect(loginURL);
     } else {
-      return NextResponse.json({ ...error, session: session_token, header: header_token }, { status: 401 });
+      return NextResponse.json(error, { status: 401 });
     }
 
   }
