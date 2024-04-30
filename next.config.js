@@ -1,5 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/api/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Credentials", value: "true" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+          { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+        ]
+      }
+    ]
+  },
   env: {
     APP_URL: process.env.APP_URL,
     APP_PUBLIC_URL: process.env.APP_PUBLIC_URL,
@@ -7,7 +20,7 @@ const nextConfig = {
     APP_IMAGE_HOST: process.env.APP_IMAGE_HOST,
   },
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "leedspolicyinstitute.org.uk", "leedsthinktank.org.uk"],
   },
   experimental: {
     serverComponentsExternalPackages: ["sequelize"],
