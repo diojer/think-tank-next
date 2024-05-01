@@ -126,4 +126,8 @@ a.article-card-title {
     align-items: center;
     width: 100%;
   }
+
+  .article-card-whole {
+    height: auto;
+  }
 }
