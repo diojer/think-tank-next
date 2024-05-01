@@ -122,7 +122,7 @@ export default async function Home() {
                   title={value.title}
                   type="Article"
                   author={value.author}
-                  path={`articles/${value.id}`}
+                  path={`articles/${value.slug}`}
                 />
               );
             })}
