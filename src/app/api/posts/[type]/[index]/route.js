@@ -18,7 +18,7 @@ export async function POST(request, { params }) { }
 export async function PUT(request, { params }) {
   try {
     const post = await validatePostsRequest(request);
-    Posts.update(post, { where: { slug: params.index } })
+    await Posts.update(post, { where: { slug: params.index } })
     return NextResponse.json(
       { message: "Updated successfully." },
       { status: 200 }

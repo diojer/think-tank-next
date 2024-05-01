@@ -2,7 +2,6 @@
 import React from "react";
 import "./Home.css";
 import { ImageCarousel } from "@/components/ImageCarousel";
-import { ImageButtons } from "@/components/ImageButtons";
 import IconButtons from "@/components/IconButtons";
 import { ArticleCard } from "@/components/ArticleCard";
 import { revalidateTag } from "next/cache";
