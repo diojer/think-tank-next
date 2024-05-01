@@ -51,17 +51,18 @@ export const EditForm = ({ post, type }) => {
         try {
             const session_token = cookies.get("__session");
 
-            let bannerImagePath = null;
+
 
             //If no images are being changed, data.<x>Image will be set to post.<x>Image
             //This is so it can be validated by the back-end (the filepaths are required).
+            let bannerImagePath = "";
             if (data.bannerImage) {
                 bannerImagePath = await uploadImage(data.bannerImage, type, session_token);
             } else {
                 bannerImagePath = post.bannerImage;
             }
 
-            let cardImagePath = null;
+            let cardImagePath = "";
             if (data.cardImage) {
                 cardImagePath = await uploadImage(data.cardImage, type, session_token);
             } else {
