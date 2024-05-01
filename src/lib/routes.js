@@ -1,15 +1,17 @@
+"use server";
 import { fetchWithAuth } from "@/lib/header";
 
-export async function index(route) {
+export async function index(route, options) {
   const path = `${process.env.APP_API_URL}${route}`;
-  const response = await fetch(path, { next: { tags: route } });
+  const response = await fetch(path, { next: { tags: route }, ...options });
   return response.json();
 }
 
-export async function getById(route, id) {
+export async function getById(route, id, options) {
   const path = `${process.env.APP_API_URL}${route}`;
   const response = await fetch(`${path}/${id}`, {
     next: { tags: route },
+    ...options
   });
   return response.json();
 }

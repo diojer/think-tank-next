@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { uploadImage } from "@/lib/upload";
 import Posts from "@/app/models/Posts";
-import validatePostsRequest from "../validation";
+import validatePostsRequest from "@/app/api/posts/validation";
 import createSlug from "@/lib/slug";
 
 export async function GET(request, { params }) {
@@ -42,5 +42,3 @@ export async function POST(request, { params }) {
     return NextResponse.json({ error: error }, { status: 500 });
   }
 }
-
-export async function PUT(request, { params }) { }

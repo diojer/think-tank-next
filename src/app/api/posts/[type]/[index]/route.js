@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { uploadImage } from "@/lib/upload";
 import Posts from "@/app/models/Posts";
+import validatePostsRequest from "@/app/api/posts/validation";
+
 
 export async function GET(request, { params }) {
   try {
@@ -11,6 +13,20 @@ export async function GET(request, { params }) {
   }
 }
 
-export async function POST(request, { params }) {}
+export async function POST(request, { params }) { }
 
-export async function PUT(request, { params }) {}
+export async function PUT(request, { params }) {
+  try {
+    const post = await validatePostsRequest(request);
+    Posts.update(post, { where: { slug: params.index } })
+    return NextResponse.json(
+      { message: "Updated successfully." },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { error: error },
+      { status: 500 }
+    );
+  }
+}

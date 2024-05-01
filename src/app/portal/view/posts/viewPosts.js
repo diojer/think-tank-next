@@ -86,10 +86,10 @@ async function ViewPosts(type, path) {
                                     <td>{post.createdAt}</td>
                                     <td>
                                         <div className="default-buttons-container">
-                                            <Button path={`/portal/edit/article/${post.id}`}>
+                                            <Button path={`/portal/edit/${type}/${post.slug}`}>
                                                 Edit
                                             </Button>
-                                            <Button buttonStyle="btn--red">Delete</Button>
+                                            <Button path={`/portal/delete/${type}/${post.slug}`} buttonStyle="btn--red">Delete</Button>
                                         </div>
                                     </td>
                                 </tr>
