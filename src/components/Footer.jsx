@@ -16,15 +16,16 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-const addToMailingList = (data, helpers) => {
-  axiosClient
-    .post("/mailinglist", data)
-    .then(({ data }) => {
-      helpers.resetForm(initialValues);
+const addToMailingList = async (data, helpers) => {
+  try {
+    await fetch(`${process.env.APP_API_URL}/mailinglist`, {
+      method: "POST",
+      body: JSON.stringify(data),
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    helpers.resetForm(initialValues);
+  } catch (error) {
+    alert(`${error}`);
+  }
 };
 
 const initialValues = {
