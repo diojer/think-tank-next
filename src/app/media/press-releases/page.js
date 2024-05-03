@@ -19,7 +19,7 @@ function PressRelease() {
             We have no public press release information at the moment.
           </p>
           <p className="WIP-message-text">
-            Please check again on Friday the 3rd of May.
+            Please check again later.
           </p>
           <p className="WIP-message-text">
             If you have received an advanced press release from us, access it through the link in your <b>email</b>.
