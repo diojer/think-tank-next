@@ -63,6 +63,10 @@
     animation: fadeAndRise 0.35s ease-in-out;
 }
 
+.report-description {
+    animation: fadeAndRise 0.35s ease-in-out;
+}
+
 .report-abstract-label {
     font-family: var(--font-domine);
     font-weight: bold;
@@ -79,6 +83,7 @@
     justify-content: left;
     border: solid black 2px;
     margin-bottom: 16px;
+    animation: fadeAndRise 0.35s ease-in-out;
 }
 
 
