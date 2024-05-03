@@ -73,7 +73,18 @@ export default async function ShowReport({ params }) {
         }
     })()
 
-    report.authors = authorsCleaned;
+    //for the share bar
+    report.authors = (() => {
+        let authors = [];
+        authorsCleaned.map((author, key, arr) => {
+            if (key === 0) {
+                authors.push(`${author}`)
+            } else {
+                authors.push(` ${author}`)
+            }
+        })
+        return authors;
+    })();
 
     return (
         <>
