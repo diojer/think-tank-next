@@ -14,7 +14,7 @@ import { revalidateTag } from "next/cache";
 export async function generateStaticParams() {
     const reports = await Reports.findAll();
     return reports.map((report) => ({
-        id: report.slug.toString(),
+        slug: report.slug.toString(),
     }));
 }
 
