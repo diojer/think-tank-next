@@ -1,8 +1,18 @@
 import React from "react";
 import "./press-releases.css";
+import "@/app/articles/Articles.css";
+import MediaCard from "@/components/MediaCard";
 import { TitleBox } from "@/components/TitleBox";
+import { revalidateTag } from "next/cache";
+import { index } from "@/lib/routes";
 
-function PressRelease() {
+async function PressRelease() {
+  revalidateTag("/posts/press-release");
+  const pressReleases = await index("/posts/press-release");
+  let filled = false;
+  if (pressReleases.length > 0) {
+    filled = true
+  }
   return (
     <>
       <TitleBox
@@ -13,7 +23,24 @@ function PressRelease() {
       >
         Press Releases<span className="hilite">.</span>
       </TitleBox>
-      <div className="WIP-wrapper">
+      {filled ? <div className="articles-aligner">
+        <div className="articles-column">
+          <div className="articles-wrapper">
+            {pressReleases.map((pressRelease, key) => (
+              <MediaCard
+                key={key}
+                subject={pressRelease.subject}
+                thumbnail={`${process.env.APP_PUBLIC_URL}${pressRelease.cardImage}`}
+                title={pressRelease.title}
+                type="Article"
+                author={pressRelease.author}
+                path={`press-releases/${pressRelease.slug}`}
+                description={pressRelease.byline}
+              />
+            ))}
+          </div>
+        </div>
+      </div> : <div className="WIP-wrapper">
         <div className="WIP-message">
           <p className="WIP-message-title">
             We have no public press release information at the moment.
@@ -25,7 +52,8 @@ function PressRelease() {
             If you have received an advanced press release from us, access it through the link in your <b>email</b>.
           </p>
         </div>
-      </div>
+      </div>}
+
     </>
   );
 }
