@@ -20,7 +20,7 @@ async function MediaAppearances() {
     <>
       <TitleBox
         image="/images/titleboxes/media-appearances.jpg"
-        type="bottom"
+        type="center"
         color="#2e2d2b"
         font="white"
       >

@@ -1,3 +1,4 @@
+import "./ArticleCard.css";
 import "./MediaCard.css";
 import Link from "next/link";
 import Image from "next/image";

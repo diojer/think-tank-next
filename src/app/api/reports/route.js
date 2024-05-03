@@ -5,7 +5,11 @@ import createSlug from "@/lib/slug";
 
 export async function GET(request, { params }) {
     try {
-        const reports = await Reports.findAll();
+        const reports = await Reports.findAll({
+            order: [
+                ["createdAt", "DESC"]
+            ]
+        });
         return NextResponse.json(reports, { status: 200 });
     } catch (error) {
         return NextResponse.json({ error: error });
