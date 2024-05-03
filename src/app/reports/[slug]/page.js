@@ -73,6 +73,8 @@ export default async function ShowReport({ params }) {
         }
     })()
 
+    report.authors = authorsCleaned;
+
     return (
         <>
             {report ? (
