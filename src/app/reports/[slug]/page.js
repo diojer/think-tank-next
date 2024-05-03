@@ -5,7 +5,7 @@ import parse, { attributesToProps } from "html-react-parser";
 import ShareBar from "@/components/ShareBar";
 import { headers } from "next/headers";
 import Image from "next/image";
-import Reports from "@/app/models/Posts";
+import Reports from "@/app/models/Reports";
 
 //API calls
 import { getById, index } from "@/lib/routes";
