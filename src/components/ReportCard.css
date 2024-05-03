@@ -43,3 +43,9 @@
   font-weight: bold;
   text-align: justify;
 }
+
+@media screen and (max-width: 416px) {
+  .report-card-whole {
+    width: 300px;
+  }
+}
