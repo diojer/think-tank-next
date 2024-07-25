@@ -32,6 +32,8 @@ export async function generateMetadata( {params} ) {
     },
     openGraph: {
       images: [imgURL],
+      url: `https://www.leedspolicyinstitute.org.uk/articles/${article.slug}`,
+      type: "article"
     }
   }
 }
