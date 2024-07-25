@@ -27,13 +27,13 @@ export async function generateMetadata( {params} ) {
   return {
     title: article.title,
     creator: article.author,
-    twitter: {
-      image: [imgURL]
-    },
     openGraph: {
       images: [imgURL],
       url: `https://www.leedspolicyinstitute.org.uk/articles/${article.slug}`,
       type: "article"
+    },
+    twitter: {
+      image: [imgURL]
     }
   }
 }
