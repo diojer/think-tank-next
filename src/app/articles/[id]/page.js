@@ -28,7 +28,10 @@ export async function generateMetadata( {params} ) {
     title: article.title,
     creator: article.author,
     twitter: {
-      images: [imgURL]
+      image: [imgURL]
+    },
+    other: {
+      "og:image": [imgURL]
     }
   }
 }
