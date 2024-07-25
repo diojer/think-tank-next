@@ -19,6 +19,20 @@ export async function generateStaticParams() {
 
 export const dynamicParams = true
 
+export async function generateMetadata( {params} ) {
+  const { id } = params;
+  revalidateTag("/posts/article");
+  const article = await getById("/posts/articles", id);
+  const imgURL = `${process.env.APP_PUBLIC_URL}${article.bannerImage}`
+  return {
+    title: article.title,
+    creator: article.author,
+    twitter: {
+      images: [imgURL]
+    }
+  }
+}
+
 export default async function ShowArticle({ params }) {
   // Get article id
   const { id } = params;
