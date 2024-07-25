@@ -30,8 +30,8 @@ export async function generateMetadata( {params} ) {
     twitter: {
       image: [imgURL]
     },
-    other: {
-      "og:image": [imgURL]
+    openGraph: {
+      images: [imgURL],
     }
   }
 }
