@@ -57,7 +57,7 @@ export default function Team() {
             {team.aboutme2[0]}
           </Profile>
           <Profile
-            image="/images/team/rares.png"
+            image="/images/team/rares.PNG"
             name="Rares Dascalu"
             position="Vice-President"
             degree="Bsc Economics"
@@ -79,7 +79,7 @@ export default function Team() {
             {team.aboutme2[4]}
           </Profile>
           <Profile
-            image="/images/team/bashra.png"
+            image="/images/team/bashra.PNG"
             name="Bashra Mahamed"
             position="Head of Editing"
             degree="BA Philosophy and Physics"
