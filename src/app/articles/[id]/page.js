@@ -11,12 +11,31 @@ import { getById, index } from "@/lib/routes";
 import { revalidateTag } from "next/cache";
 
 export async function generateStaticParams() {
-  // revalidateTag("/posts/article");
-  // const articles = await index("/posts/article")
   const articles = await Posts.findAll({ where: { type: "article" } });
   return articles.map((article) => ({
     id: article.slug.toString(),
   }));
+}
+
+export const dynamicParams = true
+
+export async function generateMetadata( {params} ) {
+  const { id } = params;
+  revalidateTag("/posts/article");
+  const article = await getById("/posts/articles", id);
+  const imgURL = `${process.env.APP_PUBLIC_URL}${article.bannerImage}`
+  return {
+    title: article.title,
+    creator: article.author,
+    openGraph: {
+      images: [imgURL],
+      url: `https://www.leedspolicyinstitute.org.uk/articles/${article.slug}`,
+      type: "article"
+    },
+    twitter: {
+      image: [imgURL]
+    }
+  }
 }
 
 export default async function ShowArticle({ params }) {
@@ -27,27 +46,30 @@ export default async function ShowArticle({ params }) {
 
   // window.location.href alternative (can't do that in server components)
   const heads = headers();
-  const shareUrl = heads.get("next-url");
+  const shareUrl = process.env.APP_URL + heads.get("next-url");
 
   const getTime = () => {
     const articleCreatedAt = new Date(article.createdAt);
-    const timeNow = new Date();
-    // Calculate time difference in seconds
-    let timeDifference = Math.floor(
-      Math.abs(articleCreatedAt - timeNow) / 36e5
-    );
+    let timeNow = new Date();
+    const diffMins = Math.floor(Math.abs(timeNow - articleCreatedAt) / (1000 * 60));
     // Set the time based on time difference
-    if (timeDifference < 24) {
-      return `${timeDifference} hour(s) ago.`;
-    } else if (timeDifference < 30 * 24) {
-      timeDifference = Math.round(timeDifference / 24);
-      return `${timeDifference} day(s) ago.`;
-    } else if (timeDifference < 365 * 12) {
-      timeDifference = Math.round(timeDifference / 30);
-      return `${timeDifference} month(s) ago.`;
+    if (diffMins < 60) {
+      return `${diffMins} minute(s) ago.`;
+    } else if (diffMins < 60 * 24) {
+      const diffHours = Math.floor(diffMins / 60)
+      return `${diffHours} hours(s) ago.`;
+    } else if (diffMins < 60 * 24 * 7) {
+      const diffDays = Math.floor(diffMins / (60 * 24))
+      return `${diffDays} day(s) ago.`;
+    } else if (diffMins < 60 * 24 * 7 * 4) {
+      const diffWeeks = Math.floor(diffMins / (60 * 24 * 7))
+      return `${diffWeeks} weeks(s) ago.`;
+    } else if (diffMins < 60 * 24 * 7 * 4 * 12) {
+      const diffMonths = Math.floor(diffMins / (60 * 24 * 7 * 4))
+      return `${diffMonths} months(s) ago.`;
     } else {
-      timeDifference = Math.round(timeDifference / 365);
-      return `${timeDifference} year(s) ago.`;
+      const diffYears = Math.floor(diffMins / (60 * 24 * 7 * 4 * 12))
+      return `${diffYears} years(s) ago.`;
     }
   };
 

@@ -1,0 +1,212 @@
+.selected-article-wrapper {
+    /* padding: 0 20% 0 20%; */
+    line-height: 230%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selected-article-column {
+    max-width: 800px;
+}
+
+.selected-article-title {
+    font-size: 3em;
+    margin-bottom: 0;
+    line-height: 110%;
+    animation: fadeAndRise 0.3s ease-in-out;
+}
+
+.selected-release-subject {
+    font-size: 1.4em;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.selected-article-byline {
+    font-size: 1.3em;
+    font-weight: 300;
+    font-style: italic;
+    animation: fadeAndRise 0.3s ease-in-out;
+}
+
+.selected-report-abstract p,
+.selected-report-abstract,
+.selected-reports-authors,
+.selected-article-title {
+    font-family: var(--font-domine);
+}
+
+.selected-report-author {
+    text-decoration: underline;
+}
+
+.selected-report-abstract p,
+.selected-report-abstract h4 {
+    margin-top: 0;
+    font-size: 1.2em;
+    animation: fadeAndRise 0.5s ease-in-out;
+}
+
+.report-clickthrough-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-reports-authors {
+    font-weight: 600;
+    font-size: 1em;
+    font-family: var(--font-poppins-bold);
+    animation: fadeAndRise 0.35s ease-in-out;
+}
+
+.report-description {
+    animation: fadeAndRise 0.35s ease-in-out;
+}
+
+.report-abstract-label {
+    font-family: var(--font-domine);
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 0;
+}
+
+.report-thumbnail-wrapper {
+    width: 350px;
+    aspect-ratio: 1/1.4142;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    border: solid black 2px;
+    margin-bottom: 16px;
+    animation: fadeAndRise 0.35s ease-in-out;
+}
+
+
+.article-disclosure {
+    margin: 0 10% 0 10%;
+}
+
+.article-disclosure-text {
+    font-style: italic;
+}
+
+@media screen and (max-width: 800px) {
+    .selected-article-wrapper {
+        padding: 0 10% 0 10%;
+        line-height: 230%;
+    }
+
+    .selected-report-abstract p,
+    .selected-report-abstract h4 {
+        font-size: 1.1em;
+    }
+
+    .selected-reports-authors {
+        font-weight: 600;
+        font-size: 1em;
+    }
+}
+
+.sharebtn {
+    display: inline-block;
+    position: relative;
+    animation: fadeAndRise 0.4s ease-in-out;
+}
+
+.share-options {
+    display: flex;
+    flex-direction: row;
+    margin-top: -2rem;
+    position: absolute;
+    margin-left: 2rem;
+}
+
+@media screen and (max-width: 650px) {
+    .share-options {
+        display: none;
+        flex-direction: row;
+        margin-top: -2rem;
+        /* position: absolute; */
+        position: static;
+        margin-left: 2rem;
+    }
+
+    .sharebtn:hover .share-options {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 250px;
+    }
+
+    .share-options button {
+        margin-bottom: 16px;
+    }
+}
+
+.share-options button {
+    display: flex;
+    /* color: #000000; */
+    padding: 5px;
+    text-decoration: none;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 60px;
+    font-size: 20px;
+}
+
+.share-options button:hover {
+    color: #ffffff;
+    background-color: var(--secondary);
+    cursor: pointer;
+}
+
+.share-btns {
+    background-color: transparent;
+    border: none;
+    scale: 200%;
+}
+
+@keyframes tilt-shaking {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0eg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+button.hover-shake:hover {
+    animation: tilt-shaking 0.25s infinite;
+    cursor: pointer;
+}
+
+p img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}

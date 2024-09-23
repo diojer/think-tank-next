@@ -1,10 +1,12 @@
 .article-card-whole {
-  padding: 10px;
-  width: 30%;
+  padding: 8px;
+  width: 286px;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   border-bottom: solid darkgrey 1px;
-  margin: 2px 2px 2px 2px;
+  margin: 6px;
+  box-sizing: border-box;
 }
 
 .article-card {
@@ -87,15 +89,39 @@ a.article-card-title {
 
 @media screen and (max-width: 960px) {
   .article-card-whole {
-    width: 100%;
+    width: 80vw;
+    height: 40vh;
   }
 
   .article-thumbnail {
+    width: 100%;
+    height: 400px;
+  }
+
+  .article-card-headlines {
+    font-size: 1.3em;
+  }
+
+  .article-author {
+    font-size: 1.2em;
+
+  }
+
+  .article-subject {
+    font-size: 1.2em;
+  }
+
+  .article-thumbnail-wrapper {
     height: 400px;
   }
 
   .article-cards-wrapper {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+  }
+
+  .article-card-whole {
+    height: auto;
   }
 }

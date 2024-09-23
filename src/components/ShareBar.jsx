@@ -34,7 +34,7 @@ const ShareBar = ({ shareUrl, article }) => {
         <FacebookShareButton
           url={shareUrl}
           title={article.title}
-          appId="1015935046327073"
+          appid="1015935046327073"
           share-btns
           resetButtonStyle={false}
         >
@@ -43,7 +43,7 @@ const ShareBar = ({ shareUrl, article }) => {
         <FacebookMessengerShareButton
           url={shareUrl}
           quote={article.title}
-          appId="1015935046327073"
+          appid="1015935046327073"
           share-btns
           resetButtonStyle={false}
         >
@@ -51,7 +51,7 @@ const ShareBar = ({ shareUrl, article }) => {
         </FacebookMessengerShareButton>
         <TwitterShareButton
           url={shareUrl}
-          title={`${article.title} by ${article.author}`}
+          title={`${article.title} by ${article.author ? article.author : article.authors}`}
           via="leedsthinktank"
           share-btns
           resetButtonStyle={false}
@@ -69,7 +69,7 @@ const ShareBar = ({ shareUrl, article }) => {
         </LinkedinShareButton>
         <RedditShareButton
           url={shareUrl}
-          title={`${article.title} by ${article.author}`}
+          title={`${article.title} by ${article.author ? article.author : article.authors}`}
           share-btns
           resetButtonStyle={false}
         >
@@ -77,7 +77,7 @@ const ShareBar = ({ shareUrl, article }) => {
         </RedditShareButton>
         <WhatsappShareButton
           url={shareUrl}
-          title={`${article.title} by ${article.author}`}
+          title={`${article.title} by ${article.author ? article.author : article.authors}`}
           share-btns
           resetButtonStyle={false}
         >
@@ -93,7 +93,7 @@ const ShareBar = ({ shareUrl, article }) => {
         </TelegramShareButton>
         <EmailShareButton
           url={shareUrl}
-          subject={`${article.title} by ${article.author}`}
+          subject={`${article.title} by ${article.author ? article.author : article.authors}`}
           body="Here's an article by the Leeds Policy Institute: "
           share-btns
           resetButtonStyle={false}

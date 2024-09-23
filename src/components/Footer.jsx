@@ -16,15 +16,16 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-const addToMailingList = (data, helpers) => {
-  axiosClient
-    .post("/mailinglist", data)
-    .then(({ data }) => {
-      helpers.resetForm(initialValues);
+const addToMailingList = async (data, helpers) => {
+  try {
+    await fetch(`${process.env.APP_API_URL}/mailinglist`, {
+      method: "POST",
+      body: JSON.stringify(data),
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    helpers.resetForm(initialValues);
+  } catch (error) {
+    alert(`${error}`);
+  }
 };
 
 const initialValues = {
@@ -109,7 +110,7 @@ function Footer() {
           </div>
           <div className="footer-link-items">
             <h2>Social Media</h2>
-            <NewTabLink link="https://www.instagram.com/leedsthinktank/">
+            <NewTabLink link="https://www.instagram.com/leedspolicyinstitute/">
               Instagram
             </NewTabLink>
             <NewTabLink link="https://www.linkedin.com/company/leeds-think-tank-society/">

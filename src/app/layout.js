@@ -35,8 +35,15 @@ const domine = Domine({
 //Auth
 import { ClerkProvider } from "@clerk/nextjs";
 
+//Analytics
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
+import { GoogleAnalytics } from '@next/third-parties/google'
+
+
+
 export const metadata = {
-  title: "Leeds Policy Institute",
+  title: "LPI - Leeds Policy Institute",
   description:
     "Leeds Policy Institute (LPI) is a student-led and student-run think tank dedicated to undertaking empirically driven research and non-partisan policy that centres on both local and national issues.",
 };
@@ -51,9 +58,14 @@ export default function RootLayout({ children }) {
         >
           <body>
             <Navbar />
-            <div className="page-wrapper">{children}</div>
+            <div className="page-wrapper">
+              {children}
+            </div>
             <Footer />
           </body>
+          <GoogleAnalytics gaId="G-XL199P0DZ7" />
+          <SpeedInsights />
+          <Analytics />
         </html>
       </ClerkProvider>
     </>

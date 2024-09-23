@@ -5,7 +5,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Button } from "@/components/Button";
 import { Editor } from "@tinymce/tinymce-react";
-import { useEffect, useState } from "react";
+import { useCookies } from "next-client-cookies";
+import uploadImage, { tinymceUploadImage } from "@/app/portal/upload/uploadImage";
+
+const type = "article";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required(),
@@ -25,43 +28,61 @@ const initialValues = {
   tags: "",
   byline: "",
   content: "",
+  cardImage: "",
+  bannerImage: ""
 };
 
-const onUpload = (data) => {
-  let formData = new FormData();
+const onUpload = async (data, cookies) => {
+  try {
+    const session_token = cookies.get("__session");
 
-  formData.append("bannerImage", data.bannerImage);
-  formData.append("cardImage", data.cardImage);
+    //if there is not a banner image and card image.
+    if (!(data.bannerImage && data.cardImage)) {
+      throw ("Images missing.")
+    }
 
-  let payload = JSON.stringify({
-    title: data.title,
-    author: data.author,
-    subject: data.subject,
-    tags: data.tags,
-    byline: data.byline,
-    content: data.content,
-  });
+    const bannerImagePath = await uploadImage(data.bannerImage, type, session_token);
+    const cardImagePath = await uploadImage(data.cardImage, type, session_token);
+    //images uploaded successfully
 
-  formData.append("payload", payload);
+    data.bannerImage = bannerImagePath;
+    data.cardImage = cardImagePath;
 
-  //upload formdata
-};
+    //upload new record to posts table
+    try {
+      const response = await fetch(`${process.env.APP_API_URL}/posts/${type}`, {
+        body: JSON.stringify(data),
+        method: "POST",
+        headers: {
+          authorization: `${session_token}`
+        }
+      })
+      if (!response.ok) {
+        throw ("Images uploaded successfully, problem recording to table.");
+      } else {
+        alert("Article successfully created.");
+      }
+    } catch (error) {
+      throw ("Images uploaded successfully, problem recording to table.");
+    }
 
-const UploadImage = (blobInfo, resolve, reject) => {
-  const blob = blobInfo.blob();
-  const image = new FormData();
-  image.append("image", blob);
-  //upload
+  } catch (error) {
+    console.log(error);
+    alert(`Error: ${error}`)
+  }
 };
 
 function UploadArticle() {
+  const cookies = useCookies();
   return (
     <div className="upload-article-form-wrapper upload-subwrapper">
       <p className="article-table-heading upload-subheader">Upload Article</p>
       <Formik
         validationSchema={validationSchema}
         initialValues={initialValues}
-        onSubmit={onUpload}
+        onSubmit={values => {
+          onUpload(values, cookies)
+        }}
       >
         <Form className="upload-article-form">
           <label>Title:</label>
@@ -165,7 +186,7 @@ function UploadArticle() {
                         "rotateleft rotateright | flipv fliph | editimage imageoptions",
                       images_upload_handler: (blobInfo) =>
                         new Promise((resolve, reject) => {
-                          UploadImage(blobInfo, resolve, reject);
+                          tinymceUploadImage(blobInfo, resolve, reject, cookies);
                         }),
                       images_upload_base_path: process.env.APP_PUBLIC_URL,
                     }}

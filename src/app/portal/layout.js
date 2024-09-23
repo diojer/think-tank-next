@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { CookiesProvider } from "next-client-cookies/server";
 import "./Portal.css";
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function portalLayout({ children }) {
           <Button path="/portal/upload/media/press-release">
             Press Release
           </Button>
-          <Button path="/portal/upload/media/appearance">
+          <Button path="/portal/upload/media/appearances">
             Media Appearance
           </Button>
           <Button path="/portal/upload/job">Job/Position</Button>
@@ -27,13 +28,18 @@ export default function portalLayout({ children }) {
         <p className="view-buttons-header portal-header">View/edit...</p>
         <div className="view-buttons">
           <Button path="/portal/view/articles">Articles</Button>
+          <Button path="/portal/view/reports">Reports</Button>
+          <Button path="/portal/view/media/press-releases">Press Releases</Button>
+          <Button path="/portal/view/media/appearances">Media Appearances</Button>
           <Button path="/portal/view/emails">Mailing List</Button>
           <Button path="/portal/view/sponsors">Sponsors</Button>
           <Button path="/portal/view/users">Registered Users</Button>
         </div>
       </div>
       <hr></hr>
-      {children}
+      <CookiesProvider>
+        {children}
+      </CookiesProvider>
     </>
   );
 }

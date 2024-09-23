@@ -47,6 +47,7 @@ const Posts = sequelize.define("posts", {
   slug: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
 });
 

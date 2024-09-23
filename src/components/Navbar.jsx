@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import "./Navbar.css";
 
 //FontAwesome Imports
@@ -19,6 +20,18 @@ import { useUser, UserButton } from "@clerk/nextjs";
 function Navbar() {
   const { user, isLoaded } = useUser();
   const [admin, setAdmin] = useState(false);
+  const url = usePathname();
+
+
+
+  useEffect(() => {
+    const elements = document.getElementsByTagName("input");
+    for (let i = 0; i < elements.length; i++) {
+      if (elements[i].type === "radio") {
+        elements[i].checked = false;
+      }
+    }
+  }, [url]);
 
   if (isLoaded) {
     if (user) {

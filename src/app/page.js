@@ -2,7 +2,6 @@
 import React from "react";
 import "./Home.css";
 import { ImageCarousel } from "@/components/ImageCarousel";
-import { ImageButtons } from "@/components/ImageButtons";
 import IconButtons from "@/components/IconButtons";
 import { ArticleCard } from "@/components/ArticleCard";
 import { revalidateTag } from "next/cache";
@@ -122,7 +121,7 @@ export default async function Home() {
                   title={value.title}
                   type="Article"
                   author={value.author}
-                  path={`articles/${value.id}`}
+                  path={`articles/${value.slug}`}
                 />
               );
             })}

@@ -8,6 +8,7 @@ nav {
   box-sizing: border-box;
   font-family: var(--font-poppins-bold);
 }
+
 nav .wrapper {
   position: relative;
   max-width: 1300px;
@@ -43,13 +44,16 @@ nav .wrapper {
   font-size: 30px;
   text-decoration: none;
 }
+
 .wrapper .nav-links {
   display: inline-flex;
   margin: 0;
 }
+
 .nav-links li {
   list-style: none;
 }
+
 .nav-links li a {
   color: var(--fontPrimary);
   text-decoration: none;
@@ -73,9 +77,11 @@ nav .wrapper {
 .nav-links li a:hover {
   background: var(--secondary);
 }
+
 .nav-links .mobile-item {
   display: none;
 }
+
 .nav-links .drop-menu {
   position: absolute;
   background: var(--primary);
@@ -86,6 +92,7 @@ nav .wrapper {
   visibility: hidden;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+
 .nav-links li:hover .drop-menu,
 .nav-links li:hover .mega-box {
   transition: all 0.3s ease;
@@ -93,6 +100,7 @@ nav .wrapper {
   opacity: 1;
   visibility: visible;
 }
+
 .drop-menu li a {
   width: 100%;
   display: block;
@@ -100,6 +108,7 @@ nav .wrapper {
   font-weight: 400;
   border-radius: 0px;
 }
+
 .mega-box {
   position: absolute;
   left: 0;
@@ -109,6 +118,7 @@ nav .wrapper {
   opacity: 0;
   visibility: hidden;
 }
+
 .mega-box .content {
   background: var(--primary);
   padding: 25px 20px;
@@ -117,27 +127,33 @@ nav .wrapper {
   justify-content: space-between;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+
 .mega-box .content .row {
   width: calc(25% - 30px);
   line-height: 45px;
 }
+
 .content .row img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .content .row header {
   color: #f2f2f2;
   font-size: 20px;
   font-weight: 500;
 }
+
 .content .row .mega-links {
   margin-left: -40px;
   border-left: 1px solid rgba(255, 255, 255, 0.09);
 }
+
 .row .mega-links li {
   padding: 0 20px;
 }
+
 .row .mega-links li a {
   padding: 0px;
   padding: 0 20px;
@@ -145,9 +161,11 @@ nav .wrapper {
   font-size: 17px;
   display: block;
 }
+
 .row .mega-links li a:hover {
   color: var(--fontPrimary);
 }
+
 .wrapper .btn {
   color: var(--fontPrimary);
   font-size: 20px;
@@ -159,7 +177,7 @@ nav .wrapper {
   display: none;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1231px) {
   nav input[name="slider"] {
     display: none;
   }
@@ -167,13 +185,16 @@ nav .wrapper {
   .nav-links li {
     margin: 10px 0px;
   }
+
   .dropdown:hover .dropdown-content {
     margin-top: 2px;
   }
+
   .menu-btn {
     padding: 15px 15px;
     margin-right: -2rem;
   }
+
   .btn.menu-btn,
   .btn.close-btn {
     display: block;
@@ -182,11 +203,13 @@ nav .wrapper {
     cursor: pointer;
     color: white;
   }
+
   .wrapper .btn.menu-btn {
     font-size: 20px;
     cursor: pointer;
     display: none;
   }
+
   .wrapper .btn.close-btn {
     color: var(--fontPrimary);
     font-size: 20px;
@@ -203,7 +226,8 @@ nav .wrapper {
   .wrapper .btn.menu-btn {
     font-size: 20px;
     cursor: pointer;
-    display: block; /* Display the menu button by default */
+    display: block;
+    /* Display the menu button by default */
   }
 
   .wrapper .nav-links {
@@ -221,34 +245,43 @@ nav .wrapper {
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.18);
     transition: all 0.3s ease;
   }
+
   /* custom scroll bar */
   ::-webkit-scrollbar {
     width: 10px;
   }
+
   ::-webkit-scrollbar-track {
     background: lightgrey;
   }
+
   ::-webkit-scrollbar-thumb {
     background: grey;
   }
-  #menu-btn:checked ~ .nav-links {
+
+  #menu-btn:checked~.nav-links {
     left: 0%;
   }
-  #menu-btn:checked ~ .btn.menu-btn {
+
+  #menu-btn:checked~.btn.menu-btn {
     display: none;
   }
-  #menu-btn:checked ~ .wrapper .btn.menu-btn {
+
+  #menu-btn:checked~.wrapper .btn.menu-btn {
     display: block;
   }
-  #close-btn:checked ~ .btn.menu-btn {
+
+  #close-btn:checked~.btn.menu-btn {
     display: block;
   }
+
   .nav-links li a {
     padding: 0 20px;
     display: block;
     font-size: 20px;
     line-height: 47px;
   }
+
   .nav-links .drop-menu {
     position: static;
     opacity: 1;
@@ -261,13 +294,16 @@ nav .wrapper {
     box-shadow: none;
     transition: all 0.3s ease;
   }
-  #showDrop:checked ~ .drop-menu,
-  #showMega:checked ~ .mega-box {
+
+  #showDrop:checked~.drop-menu,
+  #showMega:checked~.mega-box {
     max-height: 100%;
   }
+
   .nav-links .desktop-item {
     display: none;
   }
+
   .nav-links .mobile-item {
     display: block;
     color: var(--fontPrimary);
@@ -278,16 +314,20 @@ nav .wrapper {
     border-radius: 5px;
     transition: all 0.3s ease;
   }
+
   .nav-links .mobile-item:hover {
     background: var(--secondary);
   }
+
   .drop-menu li {
     margin: 0;
   }
+
   .drop-menu li a {
     border-radius: 5px;
     font-size: 18px;
   }
+
   .mega-box {
     position: static;
     top: 65px;
@@ -298,36 +338,44 @@ nav .wrapper {
     overflow: hidden;
     transition: all 0.3s ease;
   }
+
   .mega-box .content {
     box-shadow: none;
     flex-direction: column;
     padding: 20px 20px 0 20px;
   }
+
   .mega-box .content .row {
     width: 100%;
     margin-bottom: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
+
   .mega-box .content .row:nth-child(1),
   .mega-box .content .row:nth-child(2) {
     border-top: 0px;
   }
+
   .content .row .mega-links {
     border-left: 0px;
     padding-left: 15px;
   }
+
   .row .mega-links li {
     margin: 0;
   }
+
   .content .row header {
     font-size: 19px;
   }
 }
+
 @media screen and (max-width: 800px) {
   .logo-text {
     font-size: 24px;
   }
 }
+
 @media screen and (max-width: 400px) {
   .logo-text {
     font-size: 20px;
@@ -353,6 +401,7 @@ nav input {
   text-align: center;
   padding: 0 30px;
 }
+
 .body-text div {
   font-size: 45px;
   font-weight: 600;
@@ -360,8 +409,10 @@ nav input {
 
 .dropdown .dropbtn {
   background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  font-family: inherit;
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  /* Important for vertical align on mobile phones */
 }
 
 .navbar a:hover,
@@ -379,6 +430,7 @@ nav input {
     z-index: 1;
   }
 }
+
 .dropdown-content a {
   float: none;
   color: black;
@@ -388,6 +440,7 @@ nav input {
   border-radius: 0;
   line-height: 35px;
 }
+
 .dropdown-content a:hover {
   background-color: var(--secondary);
   transition: all 0.3s ease;
