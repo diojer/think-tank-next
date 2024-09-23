@@ -69,7 +69,7 @@ export default function Team() {
         </div>
         <div className="profiles-row profiles-row-2">
           <Profile
-            image="/images/team/cass.jfif"
+            image="/images/team/cass.jpg"
             name="Cass Leftley"
             position="Head of Research"
             degree="BA Politics, Philosophy and Economics"
@@ -101,7 +101,7 @@ export default function Team() {
             {team.aboutme2[7]}
           </Profile>
           <Profile
-            image="/images/team/dona.jfif"
+            image="/images/team/dona.jpg"
             name="Donatella Petrucci"
             position="Head of Media and Communication"
             degree="BA Liberal Arts (Politics Major)"
@@ -113,7 +113,7 @@ export default function Team() {
         </div>
         <div className="profiles-row profiles-row-4">
           <Profile
-            image="/images/team/adrian.jfif"
+            image="/images/team/adrian.jpg"
             name="Adrian Kubiak"
             position="Treasurer"
             degree="Bsc Economics"
