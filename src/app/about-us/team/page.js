@@ -21,7 +21,7 @@ const team = {
     "My name is Joseph Clark, I’m currently in my second year of a BSc in Economics, and enjoying it greatly. I have an interest in novel policy proposals and how markets can be influenced indirectly. I also have two (very cute) dogs back home 👍.",
   ],
   aboutme2: [
-    "I'm Nicolas, a second year PPE student from Brazil. I'm particularly interested in the link between education and social policy. I also have a small collection of model planes.",
+    "I'm Nicolas, a final year PPE student from Brazil. At Uni of Leeds I am a trustee at the student union, Project Director for Leeds Community Consulting, and the founder and president of the Leeds Policy Institute. I am also just coming out of an internship with Barclays Corporate Bank in the coverage team for the Public Sector.",
     "I'm Rares, an Economics student who is currently on his placement year within the Government Economic Service at the Department for Transport. My main interests are macroeconomic policy, international economics and labour markets. I also tend to yap about music after a pint or two.",
     "I'm Diogo Ferreira, a 3rd Year PPE student. I was born in Portugal, but I grew up in South East London. I enjoy writing and editing articles for our think tank. In my spare time I like programming simple games and websites - like this one!",
     "I'm Adrian, a third year Economics student at the University of Leeds and really loving it. I was originally born in Poland and I'm particularly interested in finance, policy and (unsurprisingly) economics :D",
