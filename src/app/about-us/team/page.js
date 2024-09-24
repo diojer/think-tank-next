@@ -83,7 +83,7 @@ export default function Team() {
             name="Bashra Mahamed"
             position="Head of Editing"
             degree="BA Philosophy and Physics"
-            year_of_study="2nd Year"
+            year_of_study="3rd Year"
             linkedin="https://www.linkedin.com/in/bashra-mahamed-600999216/"
           >
             {team.aboutme2[6]}
@@ -95,7 +95,7 @@ export default function Team() {
             name="Joseph Clark"
             position="Head of Public Affairs"
             degree="Bsc Economics"
-            year_of_study="2nd Year"
+            year_of_study="3rd Year"
             linkedin="https://www.linkedin.com/in/josephsamuelclark/"
           >
             {team.aboutme2[7]}

@@ -21,7 +21,7 @@ const addToMailingList = async (data, helpers) => {
     await fetch(`${process.env.APP_API_URL}/mailinglist`, {
       method: "POST",
       body: JSON.stringify(data),
-    })
+    });
     helpers.resetForm(initialValues);
   } catch (error) {
     alert(`${error}`);
@@ -130,7 +130,7 @@ function Footer() {
           <div className="social-icons">
             <NewTabLink
               className="social-icon-link instagram"
-              link="https://www.instagram.com/leedsthinktank/"
+              link="https://www.instagram.com/leedspolicyinstitute/"
               aria-label="Instagram"
             >
               <FontAwesomeIcon icon={faInstagram} />
