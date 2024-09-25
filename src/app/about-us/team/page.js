@@ -57,7 +57,7 @@ export default function Team() {
             {team.aboutme2[0]}
           </Profile>
           <Profile
-            image="/images/team/rares.PNG"
+            image="/images/team/rares.jpeg"
             name="Rares Dascalu"
             position="Vice-President"
             degree="Bsc Economics"
