@@ -104,8 +104,8 @@ function Footer() {
               Style Guide
             </NewTabLink>
             <Link to="/">Meetings</Link>
-            <NewTabLink link="https://calendar.google.com/calendar/u/0?cid=YTZkZGUzYmU2ODNjN2Q4NDMzYjMyOWQ0YzI3ZjU4NDQ1MDYyYWIxODdmNWVmYmFjZTM2NjQ0MjE1ZGJhNGRhY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t">
-              Calendar
+            <NewTabLink link="https://macrosimulation.org/">
+              DIY Economic Simulation
             </NewTabLink>
           </div>
           <div className="footer-link-items">
