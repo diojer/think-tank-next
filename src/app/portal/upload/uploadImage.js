@@ -36,6 +36,6 @@ export async function tinymceUploadImage(blobInfo, resolve, reject, cookies) {
         const data = await response.json()
         resolve(`${process.env.APP_PUBLIC_URL}${data.filepath}`)
     } catch (error) {
-        reject(`Error: ${error}`);
+        reject(`Error: ${error}. Session token: ${session_token} - `);
     }
 }

@@ -91,7 +91,7 @@ export default async function ShowArticle({ params }) {
               <p className="selected-article-title">{article.title}</p>
               <p className="selected-article-byline">{article.byline}</p>
               <p className="selected-article-author">
-                Published by <a>{article.author}</a> {time}
+                By <a>{article.author}</a> • Published {time}
               </p>
               <ShareBar shareUrl={shareUrl} article={article} />
               <div className="selected-article-content">
