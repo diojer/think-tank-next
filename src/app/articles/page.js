@@ -18,6 +18,7 @@ export default async function Articles() {
           image="/images/titleboxes/articles.jpg"
           color="#2e2d2b"
           font="white"
+          type="center"
         >
           Articles<span className="hilite">.</span>
         </TitleBox>
