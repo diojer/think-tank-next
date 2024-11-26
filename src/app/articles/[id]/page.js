@@ -57,7 +57,7 @@ export default async function ShowArticle({ params }) {
       return `${diffMins} minute(s) ago.`;
     } else if (diffMins < 60 * 24) {
       const diffHours = Math.floor(diffMins / 60)
-      return `${diffHours} hours(s) ago.`;
+      return `${diffHours} hour(s) ago.`;
     } else if (diffMins < 60 * 24 * 7) {
       const diffDays = Math.floor(diffMins / (60 * 24))
       return `${diffDays} day(s) ago.`;
