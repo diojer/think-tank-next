@@ -63,13 +63,13 @@ export default async function ShowArticle({ params }) {
       return `${diffDays} day(s) ago.`;
     } else if (diffMins < 60 * 24 * 7 * 4) {
       const diffWeeks = Math.floor(diffMins / (60 * 24 * 7))
-      return `${diffWeeks} weeks(s) ago.`;
+      return `${diffWeeks} week(s) ago.`;
     } else if (diffMins < 60 * 24 * 7 * 4 * 12) {
       const diffMonths = Math.floor(diffMins / (60 * 24 * 7 * 4))
-      return `${diffMonths} months(s) ago.`;
+      return `${diffMonths} month(s) ago.`;
     } else {
       const diffYears = Math.floor(diffMins / (60 * 24 * 7 * 4 * 12))
-      return `${diffYears} years(s) ago.`;
+      return `${diffYears} year(s) ago.`;
     }
   };
 
