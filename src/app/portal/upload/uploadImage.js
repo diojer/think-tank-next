@@ -29,8 +29,7 @@ export async function tinymceUploadImage(blobInfo, resolve, reject, cookies) {
             method: "POST",
             body: image,
             headers: {
-                authorization: `${session_token}`,
-                "Content-Type": "multipart/form-data"
+                authorization: `${session_token}`
             }
 
         })

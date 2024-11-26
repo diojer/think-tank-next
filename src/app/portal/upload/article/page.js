@@ -188,7 +188,6 @@ function UploadArticle() {
                         new Promise((resolve, reject) => {
                           tinymceUploadImage(blobInfo, resolve, reject, cookies);
                         }),
-                      images_upload_base_path: process.env.APP_PUBLIC_URL,
                     }}
                     onEditorChange={(content) => {
                       setFieldValue("content", content);
