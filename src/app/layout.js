@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import VoteBanner from "@/components/VoteBanner";
 import Footer from "@/components/Footer";
 
 //Font imports
@@ -58,6 +59,7 @@ export default function RootLayout({ children }) {
         >
           <body>
             <Navbar />
+            <VoteBanner/>
             <div className="page-wrapper">
               {children}
             </div>

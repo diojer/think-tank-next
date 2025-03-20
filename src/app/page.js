@@ -3,6 +3,7 @@ import React from "react";
 import "./Home.css";
 import { ImageCarousel } from "@/components/ImageCarousel";
 import IconButtons from "@/components/IconButtons";
+import VoteBanner from "@/components/VoteBanner";
 import { ArticleCard } from "@/components/ArticleCard";
 import { revalidateTag } from "next/cache";
 

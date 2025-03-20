@@ -1,0 +1,28 @@
+.votebanner {
+  position: fixed;
+  z-index: 98;
+  width: 100%;
+  background-color: var(--secondary);
+  margin-top: 70px;
+  padding: 12px;
+  box-sizing: border-box;
+  font-family: var(--font-poppins-bold);
+}
+
+.voteBannerText {
+  text-align: center;
+  margin: 8px;
+  color: white;
+  font-size: 1.5em;
+  font-style: oblique;
+}
+
+a.special {
+  color: #00C5FF
+}
+
+@media screen and (max-width: 600px) {
+  .voteBannerText {
+    font-size: 1.2em;
+  }
+}
