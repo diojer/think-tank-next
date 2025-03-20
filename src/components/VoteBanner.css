@@ -23,6 +23,6 @@ a.special {
 
 @media screen and (max-width: 600px) {
   .voteBannerText {
-    font-size: 1.2em;
+    font-size: 0.8em;
   }
 }
