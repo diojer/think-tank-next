@@ -7,11 +7,15 @@
   padding: 12px;
   box-sizing: border-box;
   font-family: var(--font-poppins-bold);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .voteBannerText {
   text-align: center;
   margin: 8px;
+  margin-left: 64px;
   color: white;
   font-size: 1.5em;
   font-style: oblique;
@@ -21,8 +25,31 @@ a.special {
   color: #00C5FF
 }
 
+.close {
+  color: white;
+  font-size: 1.8em;
+  margin: 16px;
+  cursor: pointer;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+}
+
 @media screen and (max-width: 600px) {
   .voteBannerText {
     font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .voteBannerText {
+    margin-left: 8px;
+  }
+  .close {
+    font-size: 1.5em;
+    margin: 8px;
+  }
+  .votebanner {
+    padding: 8px;
   }
 }
