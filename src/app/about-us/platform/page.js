@@ -46,16 +46,18 @@ export default function Platform() {
                                 <li>Macro Policy</li>
                                 <li>Energy and Environment</li>
                                 <li>Urban Planning and Transport</li>
+                                <li>Foreign Policy</li>
                             </ul>
                             <ul className="aboutus-text second-row">
                                 <li>Social Policy</li>
-                                <li>Market Interventions</li>
+                                <li>Labour Market Policy</li>
+                                <li>Industrial Policy</li>
                                 <li>Financial Regulations</li>
                             </ul>
                         </div>
                         <div className="aboutus-background-text">
                             <p className="aboutus-text">
-                                Established in April 2023, Leeds Think Tank (LTT) is working to engage the student body in policy dialogue through high-quality research. Alongside our regular reports and smaller-scale articles, we will host speaker and panellist events within the university. Finally, with connections to prominent newspapers, we will work to get our most impressive members’ articles published nationwide. LTT seeks to empower its student members and contribute to the betterment of society.
+                                Established in April 2023, Leeds Policy Institute (LPI) is working to engage the student body in policy dialogue through high-quality research. Alongside our regular reports and smaller-scale articles, we will host speaker and panellist events within the university. Finally, with connections to prominent newspapers, we will work to get our most impressive members’ articles published nationwide. LPI seeks to empower its student members and contribute to the betterment of society.
                             </p>
                         </div>
                     </div>
