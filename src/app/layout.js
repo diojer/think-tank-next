@@ -59,7 +59,6 @@ export default function RootLayout({ children }) {
         >
           <body>
             <Navbar />
-            <VoteBanner/>
             <div className="page-wrapper">
               {children}
             </div>
